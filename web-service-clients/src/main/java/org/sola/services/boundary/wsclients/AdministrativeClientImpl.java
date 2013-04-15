@@ -37,6 +37,8 @@ import org.sola.webservices.administrative.Administrative;
 import org.sola.webservices.administrative.AdministrativeService;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.administrative.*;
+import org.sola.webservices.transferobjects.search.RightsExportParamsTO;
+import org.sola.webservices.transferobjects.search.RightsExportResultTO;
 
 /**
  * Implementation class for the {@linkplain AdministrativeClient} interface.
@@ -314,4 +316,37 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
         return result;
     }
 
+     @Override
+    public List<SysRegStatusTO> getSysRegStatus(SysRegManagementParamsTO sysRegManagementParamsTO)
+            throws WebServiceClientException {
+        List<SysRegStatusTO> result = null;
+        final String methodName = AdministrativeClient.GET_SYS_REG_STATUS;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, sysRegManagementParamsTO,languageCode);
+            result = getPort().getSysRegStatus(sysRegManagementParamsTO,languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, sysRegManagementParamsTO,languageCode);
+        }
+        return result;
+    }
+     
+     @Override
+    public List<SysRegProgressTO> getSysRegProgress(SysRegManagementParamsTO sysRegManagementParamsTO)
+            throws WebServiceClientException {
+        List<SysRegProgressTO> result = null;
+        final String methodName = AdministrativeClient.GET_SYS_REG_PROGRESS;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, sysRegManagementParamsTO,languageCode);
+            result = getPort().getSysRegProgress(sysRegManagementParamsTO,languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, sysRegManagementParamsTO,languageCode);
+        }
+        return result;
+    } 
 }
