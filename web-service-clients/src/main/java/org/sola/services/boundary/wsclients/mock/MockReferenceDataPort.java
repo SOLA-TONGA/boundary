@@ -609,4 +609,28 @@ public class MockReferenceDataPort implements ReferenceData {
     public List<LeaseConditionTO> getLeaseConditions(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
+    @Override
+    public List<ChecklistItemTO> getChecklistItem(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<ChecklistItemTO> defaultResponse = MockTOFactory.createChecklistItems();
+        try {
+            return getManager().getResponse(ReferenceDataClient.GET_CHECKLIST_ITEMS,
+                    List.class, defaultResponse, arg0);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<ChecklistGroupTO> getChecklistGroup(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<ChecklistGroupTO> defaultResponse = MockTOFactory.createChecklistGroups();
+        try {
+            return getManager().getResponse(ReferenceDataClient.GET_CHECKLIST_GROUPS,
+                    List.class, defaultResponse, arg0);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
 }

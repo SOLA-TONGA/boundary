@@ -59,6 +59,8 @@ import org.sola.services.ejb.administrative.repository.entities.RrrType;
 import org.sola.services.ejb.administrative.repository.entities.SourceBaUnitRelationType;
 import org.sola.services.ejb.application.repository.entities.ApplicationActionType;
 import org.sola.services.ejb.application.repository.entities.ApplicationStatusType;
+import org.sola.services.ejb.application.repository.entities.ChecklistGroup;
+import org.sola.services.ejb.application.repository.entities.ChecklistItem;
 import org.sola.services.ejb.application.repository.entities.RequestCategoryType;
 import org.sola.services.ejb.application.repository.entities.RequestType;
 import org.sola.services.ejb.application.repository.entities.TypeAction;
@@ -911,6 +913,44 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<BaUnitRelTypeTO>) result[0];
     }
+    
+    @WebMethod(operationName = "GetChecklistItem")
+    public List<ChecklistItemTO> GetChecklistItems(@WebParam(name = "languageCode") String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+        final Object[] params = {languageCode};
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                String languageCode = params[0] == null ? null : params[0].toString();
+                result[0] = GenericTranslator.toTOList(systemEJB.getCodeEntityList(
+                        ChecklistItem.class, languageCode), ChecklistItemTO.class);
+            }
+        });
+
+        return (List<ChecklistItemTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "GetChecklistGroup")
+    public List<ChecklistGroupTO> GetChecklistGroups(@WebParam(name = "languageCode") String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+        final Object[] params = {languageCode};
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                String languageCode = params[0] == null ? null : params[0].toString();
+                result[0] = GenericTranslator.toTOList(systemEJB.getCodeEntityList(
+                        ChecklistGroup.class, languageCode), ChecklistGroupTO.class);
+            }
+        });
+
+        return (List<ChecklistGroupTO>) result[0];
+    }
 
     /**
      * Supports saving of all SOLA Reference Data types. <p>Requires the {@linkplain RolesConstants#ADMIN_MANAGE_REFDATA}
@@ -1035,6 +1075,14 @@ public class ReferenceData extends AbstractWebService {
                 } else if (refDataTO instanceof BaUnitRelTypeTO) {
                     codeEntity = administrativeEJB.getCodeEntity(BaUnitRelType.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, BaUnitRelType.class, codeEntity);
+                    administrativeEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof ChecklistItemTO) {
+                    codeEntity = administrativeEJB.getCodeEntity(ChecklistItem.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, ChecklistItem.class, codeEntity);
+                    administrativeEJB.saveCodeEntity(codeEntity);
+                } else if (refDataTO instanceof ChecklistGroupTO) {
+                    codeEntity = administrativeEJB.getCodeEntity(ChecklistGroup.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, ChecklistGroup.class, codeEntity);
                     administrativeEJB.saveCodeEntity(codeEntity);
                 }
 

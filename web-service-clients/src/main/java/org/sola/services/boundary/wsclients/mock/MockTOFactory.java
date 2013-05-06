@@ -488,6 +488,35 @@ public class MockTOFactory {
 
         return result;
     }
+    
+    public static List<ChecklistItemTO> createChecklistItems() {
+        List<ChecklistItemTO> result = new ArrayList<ChecklistItemTO>();
+        result.add(createCode(ChecklistItemTO.class, "businessLicense", "Business License"));
+        result.add(createCode(ChecklistItemTO.class, "businessName", "Business Registration and Business Name"));
+        result.add(createCode(ChecklistItemTO.class, "businessPlan", "Business Plan"));
+        result.add(createCode(ChecklistItemTO.class, "contact", "Contact Detail"));
+        result.add(createCode(ChecklistItemTO.class, "environmentImpact", "Environment Impact Assessment"));
+        result.add(createCode(ChecklistItemTO.class, "existingLease", "Existing Leases"));
+        result.add(createCode(ChecklistItemTO.class, "foreignInvestment", "Foreign Investment"));
+        result.add(createCode(ChecklistItemTO.class, "fund", "Proof of Funds"));
+        result.add(createCode(ChecklistItemTO.class, "id", "Identification"));
+        result.add(createCode(ChecklistItemTO.class, "permit", "Permit to Hold, Reside or Occupy Land"));
+        result.add(createCode(ChecklistItemTO.class, "powerOfAttorney", "Power of Attorney"));
+        result.add(createCode(ChecklistItemTO.class, "termAndCondition", "Terms and Conditions"));
+        result.add(createCode(ChecklistItemTO.class, "visa", "Valid Visa"));
+
+        return result;
+    }
+    
+    public static List<ChecklistGroupTO> createChecklistGroups() {
+        List<ChecklistGroupTO> result = new ArrayList<ChecklistGroupTO>();
+        result.add(createCode(ChecklistGroupTO.class, "agricultural", "Agricultural"));
+        result.add(createCode(ChecklistGroupTO.class, "commercial", "Commercial"));
+        result.add(createCode(ChecklistGroupTO.class, "government", "Government Ministries"));
+        result.add(createCode(ChecklistGroupTO.class, "residential", "Residential"));
+
+        return result;
+    }
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Security TOs">
