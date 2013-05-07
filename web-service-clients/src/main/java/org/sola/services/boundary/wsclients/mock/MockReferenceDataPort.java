@@ -611,19 +611,7 @@ public class MockReferenceDataPort implements ReferenceData {
     }
     
     @Override
-    public List<ChecklistItemTO> getChecklistItem(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
-        List<ChecklistItemTO> defaultResponse = MockTOFactory.createChecklistItems();
-        try {
-            return getManager().getResponse(ReferenceDataClient.GET_CHECKLIST_ITEMS,
-                    List.class, defaultResponse, arg0);
-        } catch (Exception ex) {
-            processExceptionAccess(ex);
-            return null;
-        }
-    }
-    
-    @Override
-    public List<ChecklistGroupTO> getChecklistGroup(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+    public List<ChecklistGroupTO> getChecklistGroups(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         List<ChecklistGroupTO> defaultResponse = MockTOFactory.createChecklistGroups();
         try {
             return getManager().getResponse(ReferenceDataClient.GET_CHECKLIST_GROUPS,

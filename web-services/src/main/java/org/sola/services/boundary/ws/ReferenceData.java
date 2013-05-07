@@ -914,26 +914,7 @@ public class ReferenceData extends AbstractWebService {
         return (List<BaUnitRelTypeTO>) result[0];
     }
     
-    @WebMethod(operationName = "GetChecklistItem")
-    public List<ChecklistItemTO> GetChecklistItems(@WebParam(name = "languageCode") String languageCode)
-            throws SOLAFault, UnhandledFault, SOLAAccessFault {
-        final Object[] params = {languageCode};
-        final Object[] result = {null};
-
-        runGeneralQuery(wsContext, new Runnable() {
-
-            @Override
-            public void run() {
-                String languageCode = params[0] == null ? null : params[0].toString();
-                result[0] = GenericTranslator.toTOList(systemEJB.getCodeEntityList(
-                        ChecklistItem.class, languageCode), ChecklistItemTO.class);
-            }
-        });
-
-        return (List<ChecklistItemTO>) result[0];
-    }
-    
-    @WebMethod(operationName = "GetChecklistGroup")
+    @WebMethod(operationName = "GetChecklistGroups")
     public List<ChecklistGroupTO> GetChecklistGroups(@WebParam(name = "languageCode") String languageCode)
             throws SOLAFault, UnhandledFault, SOLAAccessFault {
         final Object[] params = {languageCode};

@@ -162,8 +162,6 @@ public interface ReferenceDataClient extends AbstractWSClient {
     public static final String GET_LEASE_CONDITION_TYPES = SERVICE_NAME + "getLeaseConditions";
     
     public static final String GET_CHECKLIST_GROUPS = "getChecklistGroups";
-    
-    public static final String GET_CHECKLIST_ITEMS = "getChecklistItems";
 
     /**
      * Retrieves all source.source_type code values using the default locale of the client to
@@ -597,10 +595,6 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<LeaseConditionTO> getLeaseConditions() throws WebServiceClientException;
     
     List<LeaseConditionTO> getLeaseConditions(String lang) throws WebServiceClientException;
-    
-    List<ChecklistItemTO> getChecklistItems() throws WebServiceClientException;
-    
-    List<ChecklistItemTO> getChecklistItems(String lang) throws WebServiceClientException;
 
     List<ChecklistGroupTO> getChecklistGroups() throws WebServiceClientException;
 
