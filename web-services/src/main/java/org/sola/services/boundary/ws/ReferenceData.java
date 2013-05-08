@@ -925,7 +925,7 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
-                result[0] = GenericTranslator.toTOList(systemEJB.getCodeEntityList(
+                result[0] = GenericTranslator.toTOList(applicationEJB.getCodeEntityList(
                         ChecklistGroup.class, languageCode), ChecklistGroupTO.class);
             }
         });
@@ -1062,9 +1062,9 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = GenericTranslator.fromTO(refDataTO, ChecklistItem.class, codeEntity);
                     administrativeEJB.saveCodeEntity(codeEntity);
                 } else if (refDataTO instanceof ChecklistGroupTO) {
-                    codeEntity = administrativeEJB.getCodeEntity(ChecklistGroup.class, refDataTO.getCode());
+                    codeEntity = applicationEJB.getCodeEntity(ChecklistGroup.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, ChecklistGroup.class, codeEntity);
-                    administrativeEJB.saveCodeEntity(codeEntity);
+                    applicationEJB.saveCodeEntity(codeEntity);
                 }
 
                 result = GenericTranslator.toTO(codeEntity, refDataTO.getClass());

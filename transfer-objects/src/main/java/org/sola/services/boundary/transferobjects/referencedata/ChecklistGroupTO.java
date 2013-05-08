@@ -40,13 +40,14 @@ import org.sola.services.common.contracts.AbstractCodeTO;
  * @author Admin
  */
 public class ChecklistGroupTO extends AbstractCodeTO{
-        private List<ChecklistGroupTO> checklistItemList;
+    
+    private List<ChecklistGroupTO> checklistItemList;
+    
     public ChecklistGroupTO(){
         super();
     }
     
     public List<ChecklistGroupTO> getChecklistGroupList() {
-        checklistItemList = checklistItemList == null ? new ArrayList<ChecklistGroupTO>() : checklistItemList;
         return checklistItemList;
     }
 
