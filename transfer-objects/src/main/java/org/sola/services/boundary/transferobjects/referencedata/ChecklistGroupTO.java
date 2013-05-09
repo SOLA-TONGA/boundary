@@ -46,12 +46,12 @@ public class ChecklistGroupTO extends AbstractCodeTO{
     public ChecklistGroupTO(){
         super();
     }
-    
-    public List<ChecklistGroupTO> getChecklistGroupList() {
+
+    public List<ChecklistGroupTO> getChecklistItemList() {
         return checklistItemList;
     }
 
-    public void setSourceList(List<ChecklistGroupTO> checklistItemList) {
+    public void setChecklistItemList(List<ChecklistGroupTO> checklistItemList) {
         this.checklistItemList = checklistItemList;
     }
 }
