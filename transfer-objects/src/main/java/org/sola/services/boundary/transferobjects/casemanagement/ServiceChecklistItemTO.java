@@ -40,6 +40,10 @@ import org.sola.services.common.contracts.AbstractCodeTO;
  */
 public class ServiceChecklistItemTO extends AbstractCodeTO{
     
+    private String serviceId;
+    private String checklistItemCode;
+    private String result;
+    private String comment;
     private List<ServiceChecklistItemTO> serviceChecklistItems;
     
     public ServiceChecklistItemTO(){
@@ -52,6 +56,38 @@ public class ServiceChecklistItemTO extends AbstractCodeTO{
 
     public void setServiceChecklistList(List<ServiceChecklistItemTO> serviceList) {
         this.serviceChecklistItems = serviceList;
+    }
+    
+    public String getServiceId(){
+        return serviceId;
+    }
+    
+    public void setServiceId(String serviceId){
+        this.serviceId = serviceId;
+    }
+    
+    public String getCheckListItemCode(){
+        return checklistItemCode;
+    }
+    
+    public void setChecklistItemCode(String checklistItemCode){
+        this.checklistItemCode = checklistItemCode;
+    }
+    
+    public String getResult(){
+        return result;
+    }
+    
+    public void setResult(String result){
+        this.result = result;
+    }
+    
+    public String getComment(){
+        return comment;
+    }
+    
+    public void setComment(String comment){
+        this.comment = comment;
     }
 
 }
