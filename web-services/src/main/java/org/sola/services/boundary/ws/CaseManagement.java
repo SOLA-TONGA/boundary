@@ -51,6 +51,7 @@ import org.sola.services.common.faults.SOLAAccessFault;
 import org.sola.services.ejb.application.repository.entities.LodgementTiming;
 import org.sola.services.ejb.application.repository.entities.LodgementView;
 import org.sola.services.ejb.application.repository.entities.LodgementViewParams;
+import org.sola.services.ejb.application.repository.entities.ServiceChecklistItem;
 import org.sola.services.ejb.party.repository.entities.Party;
 import org.sola.services.ejb.source.businesslogic.SourceEJBLocal;
 import org.sola.services.ejb.source.repository.entities.PowerOfAttorney;
@@ -1351,4 +1352,43 @@ public class CaseManagement extends AbstractWebService {
         return (List<SysRegCertificatesTO>) result[0];
     }
     
+    @WebMethod(operationName = "SaveServiceChecklistItem")
+    public List<ServiceChecklistItemTO> SaveServiceChecklistItem(@WebParam(name = "serviceChecklistItem") List<ServiceChecklistItemTO> serviceChecklist)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault,
+            OptimisticLockingFault, SOLAValidationFault {
+        final List<ServiceChecklistItemTO> serviceChecklistTO = serviceChecklist;
+        final Object[] result = {null};
+
+        runUpdateValidation(wsContext, new Runnable() {
+
+           @Override
+            public void run() {
+                    List<ServiceChecklistItem> params = GenericTranslator.fromTOList(serviceChecklistTO, ServiceChecklistItem.class, null);
+                    List<ServiceChecklistItem> checklistItemList = applicationEJB.saveServiceChecklistItem(params);
+                    result[0] = GenericTranslator.toTO(checklistItemList, ServiceChecklistItemTO.class);
+            }
+        });
+
+        return (List<ServiceChecklistItemTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "GetServiceChecklistItem")
+    public List<ServiceChecklistItemTO> GetServiceChecklistItem(
+            @WebParam(name = "searchString") String serviceId)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final String serviceIdTmp = serviceId;
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        applicationEJB.getServiceChecklistItem(serviceIdTmp),
+                        ServiceChecklistItemTO.class);
+            }
+        });
+        return (List<ServiceChecklistItemTO>) result[0];
+    }
 }

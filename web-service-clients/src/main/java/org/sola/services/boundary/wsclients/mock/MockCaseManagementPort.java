@@ -845,5 +845,35 @@ public class MockCaseManagementPort implements CaseManagement {
             return null;
         }
     }
+    
+    @Override
+    public List<ServiceChecklistItemTO> getServiceChecklistItem(String serviceId)
+            throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<ServiceChecklistItemTO> defaultResponse = new ArrayList<ServiceChecklistItemTO>();
+        try {
+            return getManager().getResponse(CaseManagementClient.GET_SERVICE_CHECKLIST_ITEM,
+                    List.class, defaultResponse, serviceId);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+    
+    @Override
+    public List<ServiceChecklistItemTO> saveServiceChecklistItem(List<ServiceChecklistItemTO> serviceChecklistItem)
+            throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<ServiceChecklistItemTO> defaultResponse = new ArrayList<ServiceChecklistItemTO>();
+        try {
+            return getManager().getResponse(CaseManagementClient.SAVE_SERVICE_CHECKLIST_ITEM,
+                    List.class, defaultResponse, serviceChecklistItem);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+    
+    
+    
+    
 
 }

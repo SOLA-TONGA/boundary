@@ -219,6 +219,9 @@ public interface CaseManagementClient extends AbstractWSClient {
      */
     public static final String GET_SYS_REG_CERTIFICATES_APP = SERVICE_NAME + "getSysRegCerificatesByApplication";
     
+    public static final String GET_SERVICE_CHECKLIST_ITEM = SERVICE_NAME + "getServiceChecklistItem";
+    
+    public static final String SAVE_SERVICE_CHECKLIST_ITEM = SERVICE_NAME + "saveServiceChecklistItem";
 
     /**
      * Calculates the lodgement fees as well as the expected completions dates for each service as
@@ -713,4 +716,8 @@ public interface CaseManagementClient extends AbstractWSClient {
      */
     List<SysRegCertificatesTO> getSysRegCertificatesByApplication(String searchString, String nr)
             throws WebServiceClientException;
+    
+    List<ServiceChecklistItemTO> getServiceChecklistItem(String serviceId) throws WebServiceClientException;
+    
+    List<ServiceChecklistItemTO> saveServiceChecklistItem(List<ServiceChecklistItemTO> checklistItem) throws WebServiceClientException;
 }

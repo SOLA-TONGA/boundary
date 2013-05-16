@@ -710,4 +710,33 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
         return result;
     }
 
+    @Override
+    public List<ServiceChecklistItemTO> getServiceChecklistItem(String serviceId) throws WebServiceClientException {
+        List<ServiceChecklistItemTO> result = null;
+        final String methodName = CaseManagementClient.GET_SERVICE_CHECKLIST_ITEM;
+        try {
+            beforeWebMethod(methodName, serviceId);
+            result = getPort().getServiceChecklistItem(serviceId);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, serviceId);
+        }
+        return result;
+    }
+    
+    @Override
+    public List<ServiceChecklistItemTO> saveServiceChecklistItem(List<ServiceChecklistItemTO> checklistItem) throws WebServiceClientException {
+        List<ServiceChecklistItemTO> result = null;
+        final String methodName = CaseManagementClient.GET_SERVICE_CHECKLIST_ITEM;
+        try {
+            beforeWebMethod(methodName, checklistItem);
+            result = getPort().saveServiceChecklistItem(checklistItem);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, checklistItem);
+        }
+        return result;
+    }
 }

@@ -29,7 +29,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.sola.services.boundary.transferobjects.referencedata;
+package org.sola.services.boundary.transferobjects.casemanagement;
 
 import java.util.List;
 import org.sola.services.common.contracts.AbstractCodeTO;
@@ -38,19 +38,20 @@ import org.sola.services.common.contracts.AbstractCodeTO;
  *
  * @author Admin
  */
-public class ChecklistGroupTO extends AbstractCodeTO{
+public class ServiceChecklistItemTO extends AbstractCodeTO{
     
-    private List<ChecklistGroupTO> checklistItemList;
+    private List<ServiceChecklistItemTO> serviceChecklistItems;
     
-    public ChecklistGroupTO(){
+    public ServiceChecklistItemTO(){
         super();
     }
-
-    public List<ChecklistGroupTO> getChecklistItemList() {
-        return checklistItemList;
+    
+    public List<ServiceChecklistItemTO> getServiceChecklistList() {
+        return serviceChecklistItems;
     }
 
-    public void setChecklistItemList(List<ChecklistGroupTO> checklistItemList) {
-        this.checklistItemList = checklistItemList;
+    public void setServiceChecklistList(List<ServiceChecklistItemTO> serviceList) {
+        this.serviceChecklistItems = serviceList;
     }
+
 }
