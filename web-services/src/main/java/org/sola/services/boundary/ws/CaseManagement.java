@@ -1,26 +1,30 @@
 /**
  * ******************************************************************************************
- * Copyright (C) 2012 - Food and Agriculture Organization of the United Nations (FAO). All rights
- * reserved.
+ * Copyright (C) 2012 - Food and Agriculture Organization of the United Nations
+ * (FAO). All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without modification, are permitted
- * provided that the following conditions are met:
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
  *
- * 1. Redistributions of source code must retain the above copyright notice,this list of conditions
- * and the following disclaimer. 2. Redistributions in binary form must reproduce the above
- * copyright notice,this list of conditions and the following disclaimer in the documentation and/or
- * other materials provided with the distribution. 3. Neither the name of FAO nor the names of its
- * contributors may be used to endorse or promote products derived from this software without
- * specific prior written permission.
+ * 1. Redistributions of source code must retain the above copyright notice,this
+ * list of conditions and the following disclaimer. 2. Redistributions in binary
+ * form must reproduce the above copyright notice,this list of conditions and
+ * the following disclaimer in the documentation and/or other materials provided
+ * with the distribution. 3. Neither the name of FAO nor the names of its
+ * contributors may be used to endorse or promote products derived from this
+ * software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
- * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
- * FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO,PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT,STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
- * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT,STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
  * *********************************************************************************************
  */
 package org.sola.services.boundary.ws;
@@ -59,11 +63,11 @@ import org.sola.services.ejb.source.repository.entities.Source;
 import org.sola.services.ejb.system.businesslogic.SystemEJBLocal;
 
 /**
- * Web Service Boundary class to expose Case Management functionality available on  
- * {@linkplain org.sola.services.ejb.application.businesslogic.ApplicationEJB}, 
- * {@linkplain org.sola.services.ejb.party.businesslogic.PartyEJB}, 
+ * Web Service Boundary class to expose Case Management functionality available
+ * on  {@linkplain org.sola.services.ejb.application.businesslogic.ApplicationEJB}, 
+ * {@linkplain org.sola.services.ejb.party.businesslogic.PartyEJB},
  * {@linkplain org.sola.services.ejb.source.businesslogic.SourceEJB} and
- * {@linkplain org.sola.services.ejb.address.businesslogic.AddressEJB}. 
+ * {@linkplain org.sola.services.ejb.address.businesslogic.AddressEJB}.
  */
 @WebService(serviceName = "casemanagement-service", targetNamespace = ServiceConstants.CASE_MAN_WS_NAMESPACE)
 public class CaseManagement extends AbstractWebService {
@@ -109,7 +113,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 ApplicationTO application = (ApplicationTO) params[0];
@@ -144,7 +147,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 ApplicationTO application = (ApplicationTO) params[0];
@@ -179,7 +181,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 if (sourceTO != null) {
@@ -213,7 +214,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 PartyTO party = (PartyTO) params[0];
@@ -247,7 +247,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 LodgementViewParams params = GenericTranslator.fromTO(paramsTOTmp, LodgementViewParams.class, null);
@@ -276,7 +275,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 LodgementViewParams params = GenericTranslator.fromTO(paramsTOTmp, LodgementViewParams.class, null);
@@ -304,7 +302,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(addressEJB.getAddress(idTmp),
@@ -331,7 +328,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(applicationEJB.getApplication(idTmp),
@@ -357,7 +353,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(partyEJB.getParty(idTmp), PartyTO.class);
@@ -381,7 +376,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(partyEJB.getAgents(),
@@ -412,7 +406,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -440,7 +433,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 Application app = GenericTranslator.fromTO(applicationTmp,
@@ -477,7 +469,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
@@ -494,23 +485,22 @@ public class CaseManagement extends AbstractWebService {
             @WebParam(name = "powerOfAttorney") final PowerOfAttorneyTO powerOfAttorney,
             @WebParam(name = "languageCode") final String languageCode)
             throws SOLAValidationFault, OptimisticLockingFault, SOLAFault, UnhandledFault, SOLAAccessFault {
-        
+
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
                         sourceEJB.attachPowerOfAttorneyToTransaction(
-                        serviceId, GenericTranslator.fromTO(powerOfAttorney, 
+                        serviceId, GenericTranslator.fromTO(powerOfAttorney,
                         PowerOfAttorney.class, null), languageCode), PowerOfAttorneyTO.class);
             }
         });
 
         return (PowerOfAttorneyTO) result[0];
     }
-    
+
     /**
      * See {@linkplain org.sola.services.ejb.source.businesslogic.SourceEJB#dettachSourceFromTransaction(java.lang.String)
      * SourceEJB.dettachSourceFromTransaction}
@@ -531,7 +521,6 @@ public class CaseManagement extends AbstractWebService {
         final boolean[] result = {false};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = sourceEJB.dettachSourceFromTransaction(sourceIdTmp);
@@ -558,7 +547,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -586,7 +574,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -597,7 +584,7 @@ public class CaseManagement extends AbstractWebService {
 
         return (List<PowerOfAttorneyTO>) result[0];
     }
-    
+
     /**
      * See {@linkplain org.sola.services.ejb.source.businesslogic.SourceEJB#getSources(java.util.List)
      * SourceEJB.getSources}
@@ -615,7 +602,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -643,7 +629,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
@@ -653,7 +638,7 @@ public class CaseManagement extends AbstractWebService {
 
         return (SourceTO) result[0];
     }
-    
+
     /**
      * See {@linkplain org.sola.services.ejb.source.businesslogic.SourceEJB#getSourceById(java.lang.String)
      * SourceEJB.getSourceById}
@@ -670,7 +655,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
@@ -681,7 +665,9 @@ public class CaseManagement extends AbstractWebService {
         return (PowerOfAttorneyTO) result[0];
     }
 
-    /** Returns {@link ApplicationTO} by the given transaction ID. */
+    /**
+     * Returns {@link ApplicationTO} by the given transaction ID.
+     */
     @WebMethod(operationName = "getApplicationByTransactionId")
     public ApplicationTO getApplicationByTransactionId(
             @WebParam(name = "transactionId") final String transactionId) throws SOLAFault, UnhandledFault,
@@ -690,7 +676,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
@@ -700,7 +685,7 @@ public class CaseManagement extends AbstractWebService {
 
         return (ApplicationTO) result[0];
     }
-            
+
     /**
      * See {@linkplain org.sola.services.ejb.application.businesslogic.ApplicationEJB#serviceActionComplete(java.lang.String, java.lang.String, int)
      * ApplicationEJB.serviceActionComplete}
@@ -725,7 +710,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.serviceActionComplete(
@@ -760,7 +744,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.serviceActionCancel(
@@ -795,7 +778,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.serviceActionRevert(
@@ -830,7 +812,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.serviceActionStart(
@@ -865,7 +846,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionWithdraw(
@@ -900,7 +880,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionCancel(
@@ -935,7 +914,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionRequisition(
@@ -970,7 +948,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionValidate(
@@ -1005,7 +982,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionApprove(
@@ -1040,7 +1016,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionArchive(
@@ -1075,7 +1050,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionDespatch(
@@ -1110,7 +1084,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionLapse(
@@ -1145,7 +1118,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionUnassign(
@@ -1182,7 +1154,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionAssign(
@@ -1217,7 +1188,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = applicationEJB.applicationActionResubmit(
@@ -1242,7 +1212,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(systemEJB.getAllBrs(),
@@ -1275,7 +1244,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 ServiceTO service = serviceTmp;
@@ -1291,8 +1259,8 @@ public class CaseManagement extends AbstractWebService {
 
         return (ServiceTO) result[0];
     }
-    
-     /**
+
+    /**
      * See {@linkplain org.sola.services.ejb.application.businesslogic.ApplicationEJB#getSysRegCertificatesByLocation(java.lang.String)
      * CadastreEJB.getSysRegPubDisParcelNameByLocation}
      *
@@ -1309,7 +1277,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -1320,8 +1287,8 @@ public class CaseManagement extends AbstractWebService {
 
         return (List<SysRegCertificatesTO>) result[0];
     }
-    
-      /**
+
+    /**
      * See {@linkplain org.sola.services.ejb.application.businesslogic.ApplicationEJB#getSysRegCertificatesByApplication(java.lang.String)
      * CadastreEJB.getSysRegCertificatesByApplication}
      *
@@ -1340,7 +1307,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -1351,27 +1317,30 @@ public class CaseManagement extends AbstractWebService {
 
         return (List<SysRegCertificatesTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "SaveServiceChecklistItem")
     public List<ServiceChecklistItemTO> SaveServiceChecklistItem(@WebParam(name = "serviceChecklistItem") List<ServiceChecklistItemTO> serviceChecklist)
             throws SOLAFault, UnhandledFault, SOLAAccessFault,
             OptimisticLockingFault, SOLAValidationFault {
         final List<ServiceChecklistItemTO> serviceChecklistTO = serviceChecklist;
-        final Object[] result = {null};
+        final Object[] result = {serviceChecklist};
 
         runUpdateValidation(wsContext, new Runnable() {
-
-           @Override
+            @Override
             public void run() {
-                    List<ServiceChecklistItem> params = GenericTranslator.fromTOList(serviceChecklistTO, ServiceChecklistItem.class, null);
+                if (serviceChecklistTO != null && serviceChecklistTO.size() > 0) {
+                    String serviceId = serviceChecklistTO.get(0).getServiceId();
+                    List<ServiceChecklistItem> params = GenericTranslator.fromTOList(serviceChecklistTO, ServiceChecklistItem.class, 
+                            applicationEJB.getServiceChecklistItem(serviceId));
                     List<ServiceChecklistItem> checklistItemList = applicationEJB.saveServiceChecklistItem(params);
-                    result[0] = GenericTranslator.toTO(checklistItemList, ServiceChecklistItemTO.class);
+                    result[0] = GenericTranslator.toTOList(checklistItemList, ServiceChecklistItemTO.class);
+                }
             }
         });
 
         return (List<ServiceChecklistItemTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "GetServiceChecklistItem")
     public List<ServiceChecklistItemTO> GetServiceChecklistItem(
             @WebParam(name = "searchString") String serviceId)
@@ -1381,7 +1350,6 @@ public class CaseManagement extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-            
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
