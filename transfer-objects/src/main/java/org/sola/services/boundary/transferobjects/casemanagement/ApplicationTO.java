@@ -61,6 +61,8 @@ public class ApplicationTO extends AbstractIdTO {
     private List<ServiceTO> serviceList;
     private List<ApplicationPropertyTO> propertyList;
     private List<SourceTO> sourceList;
+    private Date expectedInspectionDate;
+    private boolean inspectionCompleted;
 
     public ApplicationTO() {
         super();
@@ -245,5 +247,21 @@ public class ApplicationTO extends AbstractIdTO {
 
     public void setSourceList(List<SourceTO> sourceList) {
         this.sourceList = sourceList;
+    }
+    
+    public Date getExpectedInspectionDate(){
+        return expectedInspectionDate;
+    }
+    
+    public void setExpectedInspectionDate(Date date){
+        this.expectedCompletionDate = date;
+    }
+    
+    public boolean isInspectionCompleted(){
+        return inspectionCompleted;
+    }
+    
+    public void setInspectionCompleted(boolean completed){
+        this.inspectionCompleted = completed;
     }
 }
