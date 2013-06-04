@@ -254,7 +254,7 @@ public class ApplicationTO extends AbstractIdTO {
     }
     
     public void setExpectedInspectionDate(Date date){
-        this.expectedCompletionDate = date;
+        this.expectedInspectionDate = date;
     }
     
     public boolean isInspectionCompleted(){
