@@ -34,6 +34,7 @@
 package org.sola.services.boundary.transferobjects.casemanagement;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import org.sola.services.common.contracts.AbstractIdTO;
 
 /**
@@ -57,9 +58,10 @@ public class ApplicationPropertyTO extends AbstractIdTO {
     private BigDecimal leaseTerm;
     private BigDecimal leaseArea;
     private BigDecimal amount;
+    private Date registrationDate;
     private String lessorName;
     private String district;
-    private String nobelEstate;
+    private String nobleEstate;
     private String description;
 
     public ApplicationPropertyTO() {
@@ -178,6 +180,14 @@ public class ApplicationPropertyTO extends AbstractIdTO {
         this.amount = amount;
     }
 
+    public Date getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+    
     public String getLessorName() {
         return lessorName;
     }
@@ -194,12 +204,12 @@ public class ApplicationPropertyTO extends AbstractIdTO {
         this.district = district;
     }
 
-    public String getNobelEstate() {
-        return nobelEstate;
+    public String getNobleEstate() {
+        return nobleEstate;
     }
 
-    public void setNobelEstate(String nobelEstate) {
-        this.nobelEstate = nobelEstate;
+    public void setNobleEstate(String nobleEstate) {
+        this.nobleEstate = nobleEstate;
     }
 
     public String getDescription() {
