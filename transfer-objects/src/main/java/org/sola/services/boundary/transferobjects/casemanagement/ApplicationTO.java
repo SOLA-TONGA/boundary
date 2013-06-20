@@ -56,6 +56,7 @@ public class ApplicationTO extends AbstractIdTO {
     private String receiptRef;
     private String actionCode;
     private String actionNotes;
+    private String itemNumber;
     private PartyTO contactPerson;
     private PartySummaryTO agent;
     private List<ServiceTO> serviceList;
@@ -96,6 +97,14 @@ public class ApplicationTO extends AbstractIdTO {
 
     public void setLodgingDatetime(Date lodgingDatetime) {
         this.lodgingDatetime = lodgingDatetime;
+    }
+    
+    public String getItemNumber(){
+        return itemNumber;
+    }
+    
+    public void setItemNumber(String itemNumber){
+        this.itemNumber = itemNumber;
     }
 
     public String getNr() {
