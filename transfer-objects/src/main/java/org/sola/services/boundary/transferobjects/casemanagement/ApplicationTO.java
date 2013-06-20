@@ -57,6 +57,8 @@ public class ApplicationTO extends AbstractIdTO {
     private String actionCode;
     private String actionNotes;
     private String itemNumber;
+    private String locationDescription;
+    private String purpose;
     private PartyTO contactPerson;
     private PartySummaryTO agent;
     private List<ServiceTO> serviceList;
@@ -187,6 +189,22 @@ public class ApplicationTO extends AbstractIdTO {
         this.totalFee = totalFee;
     }
 
+    public String getLocationDescription() {
+        return locationDescription;
+    }
+
+    public void setLocationDescription(String locationDescription) {
+        this.locationDescription = locationDescription;
+    }
+
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+    
     public List<ServiceTO> getServiceList() {
         return serviceList;
     }
