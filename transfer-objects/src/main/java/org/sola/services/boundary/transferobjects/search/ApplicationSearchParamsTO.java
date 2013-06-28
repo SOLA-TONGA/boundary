@@ -38,6 +38,7 @@ public class ApplicationSearchParamsTO extends AbstractTO {
     private String locale;
     private String documentNumber;
     private String documentReference;
+    private String itemNumber;
 
     public ApplicationSearchParamsTO() {
     }
@@ -104,6 +105,14 @@ public class ApplicationSearchParamsTO extends AbstractTO {
 
     public void setDocumentReference(String documentReference) {
         this.documentReference = documentReference;
+    }
+    
+    public String getItemNumber(){
+        return itemNumber;
+    }
+    
+    public void setItemNumber(String itemNumber){
+        this.itemNumber = itemNumber;
     }
        
 }
