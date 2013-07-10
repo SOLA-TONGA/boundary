@@ -113,6 +113,5 @@ public class ApplicationSearchParamsTO extends AbstractTO {
     
     public void setItemNumber(String itemNumber){
         this.itemNumber = itemNumber;
-    }
-       
+    }     
 }
