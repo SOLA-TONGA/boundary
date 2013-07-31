@@ -133,7 +133,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -161,7 +160,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -189,7 +187,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -217,7 +214,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -245,7 +241,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -272,7 +267,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -299,7 +293,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -326,7 +319,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -354,7 +346,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -382,7 +373,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -410,7 +400,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -437,7 +426,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -464,7 +452,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -491,7 +478,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runOpenQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -518,7 +504,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -545,7 +530,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -573,7 +557,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -583,7 +566,7 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<MortgageTypeTO>) result[0];
     }
-    
+
     /**
      * See {@linkplain org.sola.services.ejb.administrative.businesslogic.AdministrativeEJB#getLeaseConditions(java.lang.String) (java.lang.String)
      * AdministrativeEJB.getLeaseConditions}
@@ -600,7 +583,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -627,7 +609,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -654,7 +635,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -681,7 +661,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -709,7 +688,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -737,7 +715,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -765,7 +742,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -793,7 +769,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -820,7 +795,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
@@ -848,7 +822,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
@@ -875,7 +848,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
@@ -902,7 +874,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
@@ -913,7 +884,7 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<BaUnitRelTypeTO>) result[0];
     }
-    
+
     @WebMethod(operationName = "GetChecklistGroups")
     public List<ChecklistGroupTO> GetChecklistGroups(@WebParam(name = "languageCode") String languageCode)
             throws SOLAFault, UnhandledFault, SOLAAccessFault {
@@ -921,7 +892,6 @@ public class ReferenceData extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
@@ -934,8 +904,32 @@ public class ReferenceData extends AbstractWebService {
     }
 
     /**
-     * Supports saving of all SOLA Reference Data types. <p>Requires the {@linkplain RolesConstants#ADMIN_MANAGE_REFDATA}
-     * role.</p>
+     * Retrieve the estates from the administrative.ba_unit table
+     * @return
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault 
+     */
+    @WebMethod(operationName = "GetEstates")
+    public List<EstateTO> GetEstates(@WebParam(name = "languageCode") String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+        final Object[] params = {languageCode};
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                String languageCode = params[0] == null ? null : params[0].toString();
+                result[0] = GenericTranslator.toTOList(administrativeEJB.getEstates(languageCode), EstateTO.class);
+            }
+        });
+
+        return (List<EstateTO>) result[0];
+    }
+
+    /**
+     * Supports saving of all SOLA Reference Data types. <p>Requires the
+     * {@linkplain RolesConstants#ADMIN_MANAGE_REFDATA} role.</p>
      *
      * @throws SOLAFault
      * @throws UnhandledFault

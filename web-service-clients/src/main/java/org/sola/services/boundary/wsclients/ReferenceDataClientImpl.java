@@ -636,7 +636,7 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         }
         return result;
     }
-    
+
     @Override
     public List<ChecklistGroupTO> getChecklistGroups() throws WebServiceClientException {
         return getChecklistGroups(getLanguageCode());
@@ -649,6 +649,26 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         try {
             beforeWebMethod(methodName, lang);
             result = getPort().getChecklistGroups(lang);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, lang);
+        }
+        return result;
+    }
+
+    @Override
+    public List<EstateTO> getEstates() throws WebServiceClientException {
+        return getEstates(getLanguageCode());
+    }
+
+    @Override
+    public List<EstateTO> getEstates(String lang) throws WebServiceClientException {
+        List<EstateTO> result = null;
+        final String methodName = ReferenceDataClient.GET_ESTATES;
+        try {
+            beforeWebMethod(methodName, lang);
+            result = getPort().getEstates(lang);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {

@@ -38,12 +38,13 @@ import org.sola.webservices.transferobjects.referencedata.*;
 /**
  * Provides a mock implementation for the
  * {@linkplain org.sola.webservices.referencedata.ReferenceData} interface. Uses
- * the
- * {@linkplain MockServiceManager} to obtain the appropriate mock response for
- * each web method. <p>Each method mocked by this class has a public constant
- * defined that can be used to reference a mock response object from the {@linkplain MockServiceManager}.
- * To set a response object for a web method, use the {@linkplain MockServiceManager#setResponse(String, Object)}
- * method referencing the appropriate web method constant from {@linkplain org.sola.services.boundary.wsclients.ReferenceDataClient}.</p>
+ * the {@linkplain MockServiceManager} to obtain the appropriate mock response
+ * for each web method. <p>Each method mocked by this class has a public
+ * constant defined that can be used to reference a mock response object from
+ * the {@linkplain MockServiceManager}. To set a response object for a web
+ * method, use the {@linkplain MockServiceManager#setResponse(String, Object)}
+ * method referencing the appropriate web method constant from
+ * {@linkplain org.sola.services.boundary.wsclients.ReferenceDataClient}.</p>
  *
  * @see MockReferenceDataClient
  * @see ReferenceDataClient
@@ -85,7 +86,8 @@ public class MockReferenceDataPort implements ReferenceData {
     /**
      * Processes the mock response exception and throws the appropriate service
      * exception or a MockResponseException if the response exception is not a
-     * recognized type. Extends {@linkplain #processExceptionBasic(java.lang.Exception) processExceptionBasic}
+     * recognized type. Extends
+     * {@linkplain #processExceptionBasic(java.lang.Exception) processExceptionBasic}
      * to include the SOLAAccessFault;
      *
      * @param ex The Mock response exception to process
@@ -102,7 +104,8 @@ public class MockReferenceDataPort implements ReferenceData {
     /**
      * Processes the mock response exception and throws the appropriate service
      * exception or a MockResponseException if the response exception is not a
-     * recognized type. Extends {@linkplain #processExceptionBasic(java.lang.Exception) processExceptionBasic}
+     * recognized type. Extends
+     * {@linkplain #processExceptionBasic(java.lang.Exception) processExceptionBasic}
      * to include the OptimisticLockingFault;
      *
      * @param ex The Mock response exception to process
@@ -609,7 +612,7 @@ public class MockReferenceDataPort implements ReferenceData {
     public List<LeaseConditionTO> getLeaseConditions(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
     @Override
     public List<ChecklistGroupTO> getChecklistGroups(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         List<ChecklistGroupTO> defaultResponse = MockTOFactory.createChecklistGroups();
@@ -620,5 +623,10 @@ public class MockReferenceDataPort implements ReferenceData {
             processExceptionAccess(ex);
             return null;
         }
+    }
+ 
+    @Override
+    public List<EstateTO> getEstates(String languageCode) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
