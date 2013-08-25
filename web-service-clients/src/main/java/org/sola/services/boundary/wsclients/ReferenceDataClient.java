@@ -181,6 +181,7 @@ public interface ReferenceDataClient extends AbstractWSClient {
     public static final String GET_LEASE_CONDITION_TYPES = SERVICE_NAME + "getLeaseConditions";
     public static final String GET_CHECKLIST_GROUPS = "getChecklistGroups";
     public static final String GET_ESTATES = "getEstates";
+    public static final String GET_DISTRICTS = "getDistricts";
 
     /**
      * Retrieves all source.source_type code values using the default locale of
@@ -647,4 +648,9 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<EstateTO> getEstates(String lang) throws WebServiceClientException;
 
     List<EstateTO> getEstates() throws WebServiceClientException;
+    
+    List<DistrictTO> getDistricts(String lang) throws WebServiceClientException;
+
+    List<DistrictTO> getDistricts() throws WebServiceClientException;
+    
 }
