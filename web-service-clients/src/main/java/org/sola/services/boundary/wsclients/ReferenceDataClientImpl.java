@@ -688,7 +688,7 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         final String methodName = ReferenceDataClient.GET_DISTRICTS;
         try {
             beforeWebMethod(methodName, lang);
-            //result = getPort().getEstates(lang);
+            result = getPort().getDistricts(lang);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {

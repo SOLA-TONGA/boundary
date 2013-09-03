@@ -926,6 +926,30 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<EstateTO>) result[0];
     }
+    
+        /**
+     * Retrieve the districts from the administrative.ba_unit table
+     * @return
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault 
+     */
+    @WebMethod(operationName = "GetDistricts")
+    public List<DistrictTO> GetDistricts(@WebParam(name = "languageCode") String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+        final Object[] params = {languageCode};
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                String languageCode = params[0] == null ? null : params[0].toString();
+                result[0] = GenericTranslator.toTOList(administrativeEJB.getDistricts(languageCode), DistrictTO.class);
+            }
+        });
+
+        return (List<DistrictTO>) result[0];
+    }
 
     /**
      * Supports saving of all SOLA Reference Data types. <p>Requires the
