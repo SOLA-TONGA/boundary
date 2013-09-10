@@ -283,12 +283,12 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
 
     @Override
     public List<SpatialSearchResultTO> searchSpatialObjects(
-            String queryName, String searchString) throws WebServiceClientException {
+            String queryName, String searchString, int srid) throws WebServiceClientException {
         List<SpatialSearchResultTO> result = null;
         final String methodName = SearchClient.SEARCH_SPATIAL_OBJECTS;
         try {
             beforeWebMethod(methodName, queryName, searchString);
-            result = getPort().searchSpatialObjects(queryName, searchString);
+            result = getPort().searchSpatialObjects(queryName, searchString, srid);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {
@@ -343,6 +343,21 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
             processException(methodName, e);
         } finally {
             afterWebMethod(methodName, result);
+        }
+        return result;
+    }
+
+    @Override
+    public byte[] getExtentOfPublicDisplayMap(String nameLastPart) throws WebServiceClientException {
+        byte[] result = null;
+        final String methodName = SearchClient.GET_EXTENT_OF_PUBLIC_DISPLAY_MAP;
+        try {
+            beforeWebMethod(methodName, nameLastPart);
+            result = getPort().getExtentOfPublicDisplayMap(nameLastPart);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, nameLastPart);
         }
         return result;
     }

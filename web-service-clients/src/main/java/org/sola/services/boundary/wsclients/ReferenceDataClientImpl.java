@@ -689,6 +689,25 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         try {
             beforeWebMethod(methodName, lang);
             result = getPort().getDistricts(lang);
+                    } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, lang);
+        }
+        return result;
+    }
+
+    public List<HierarchyLevelTO> getHierarchyLevels() throws WebServiceClientException {
+        return getHierarchyLevels(getLanguageCode());
+    }
+
+    @Override
+    public List<HierarchyLevelTO> getHierarchyLevels(String lang) throws WebServiceClientException {
+        List<HierarchyLevelTO> result = null;
+        final String methodName = ReferenceDataClient.GET_HIERARCHY_LEVELS;
+        try {
+            beforeWebMethod(methodName, lang);
+            result = getPort().getHierarchyLevels(lang);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {

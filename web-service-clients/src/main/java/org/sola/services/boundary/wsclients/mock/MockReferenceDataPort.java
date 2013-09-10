@@ -624,12 +624,29 @@ public class MockReferenceDataPort implements ReferenceData {
             return null;
         }
     }
- 
+
+    /**
+     * Response Key = ReferenceDataClient.GET_HIERARCHY_LEVELS
+     *
+     * @return default = MockTOFactory.createHierarchyLevels()
+     */
+    @Override
+    public List<HierarchyLevelTO> getHierarchyLevels(String languageCode) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<HierarchyLevelTO> defaultResponse = MockTOFactory.createHierarchyLevels();
+        try {
+            return getManager().getResponse(ReferenceDataClient.GET_HIERARCHY_LEVELS,
+                    List.class, defaultResponse, languageCode);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+
     @Override
     public List<EstateTO> getEstates(String languageCode) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
     @Override
     public List<DistrictTO> getDistricts(String languageCode) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         throw new UnsupportedOperationException("Not supported yet.");

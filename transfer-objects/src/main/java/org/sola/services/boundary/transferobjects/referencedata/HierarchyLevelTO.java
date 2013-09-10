@@ -25,50 +25,12 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * *********************************************************************************************
  */
-package org.sola.services.boundary.transferobjects.casemanagement;
+package org.sola.services.boundary.transferobjects.referencedata;
 
-import org.sola.services.common.contracts.AbstractBasicIdTO;
+import org.sola.services.common.contracts.AbstractCodeTO;
 
-
-
-
-/**
- *
- * @author RizzoM
- */
-public class LodgementTimingTO  extends AbstractBasicIdTO {
-
-    private String  resultCode;
-    private int resultTotal;
-    private double  resultDailyAvg;
-
-    public double getResultDailyAvg() {
-        return resultDailyAvg;
-    }
-
-    public void setResultDailyAvg(double resultDailyAvg) {
-        this.resultDailyAvg = resultDailyAvg;
-    }
-
-    public LodgementTimingTO() {
+public class HierarchyLevelTO extends AbstractCodeTO {
+    public HierarchyLevelTO(){
         super();
     }
-
-    public int getResultTotal() {
-        return resultTotal;
-    }
-
-    public void setResultTotal(int resultTotal) {
-        this.resultTotal = resultTotal;
-    }
-
-    public String getResultCode() {
-        return resultCode;
-    }
-
-    public void setResultCode(String resultCode) {
-        this.resultCode = resultCode;
-    }
-
- 
 }

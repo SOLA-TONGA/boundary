@@ -27,79 +27,45 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * *********************************************************************************************
  */
-package org.sola.services.boundary.transferobjects.security;
+package org.sola.services.boundary.transferobjects.cadastre;
 
-import java.util.Date;
-import java.util.List;
+import org.sola.services.common.contracts.AbstractIdTO;
 
-public class UserTO extends UserSummaryTO {
+/**
+ * TO for CadastreObject entity
+ */
+public class SpatialUnitGroupTO extends AbstractIdTO {
 
-    private String userName;
-    private String pasword;
-    private List<UserGroupTO> userGroups;
-    private boolean active;
-    private String password;
-    private String lastPwordChangeUser;
-    private Integer pwordExpiryDays;
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public UserTO() {
+    private Integer hierarchyLevel;
+    private String label;
+    private byte[] geom;
+    
+    public SpatialUnitGroupTO() {
         super();
     }
 
-    public List<UserGroupTO> getUserGroups() {
-        return userGroups;
+    public byte[] getGeom() {
+        return geom;
     }
 
-    public void setUserGroups(List<UserGroupTO> userGroups) {
-        this.userGroups = userGroups;
+    public void setGeom(byte[] geom) {
+        this.geom = geom;
     }
 
-    public String getPasword() {
-        return pasword;
+    public Integer getHierarchyLevel() {
+        return hierarchyLevel;
     }
 
-    public void setPasword(String pasword) {
-        this.pasword = pasword;
+    public void setHierarchyLevel(Integer hierarchyLevel) {
+        this.hierarchyLevel = hierarchyLevel;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getLabel() {
+        return label;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    public String getLastPwordChangeUser() {
-        return lastPwordChangeUser;
-    }
-
-    public void setLastPwordChangeUser(String lastPwordChangeUser) {
-        this.lastPwordChangeUser = lastPwordChangeUser;
-    }
-
-    public Integer getPwordExpiryDays() {
-        return pwordExpiryDays;
-    }
-
-    public void setPwordExpiryDays(Integer pwordExpiryDays) {
-        this.pwordExpiryDays = pwordExpiryDays;
-    }
-    
 }

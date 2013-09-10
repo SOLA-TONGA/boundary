@@ -68,14 +68,6 @@ public class ApplicationPropertyTO extends AbstractIdTO {
         super();
     }
 
-    public String getLandUseCode() {
-        return landUseCode;
-    }
-
-    public void setLandUseCode(String landUseCode) {
-        this.landUseCode = landUseCode;
-    }
-
     public String getApplicationId() {
         return applicationId;
     }

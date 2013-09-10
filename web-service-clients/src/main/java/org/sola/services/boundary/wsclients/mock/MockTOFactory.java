@@ -488,13 +488,23 @@ public class MockTOFactory {
 
         return result;
     }
-    
+
     public static List<ChecklistGroupTO> createChecklistGroups() {
         List<ChecklistGroupTO> result = new ArrayList<ChecklistGroupTO>();
         result.add(createCode(ChecklistGroupTO.class, "agricultural", "Agricultural"));
         result.add(createCode(ChecklistGroupTO.class, "commercial", "Commercial"));
         result.add(createCode(ChecklistGroupTO.class, "government", "Government"));
         result.add(createCode(ChecklistGroupTO.class, "residential", "Residential"));
+        return result;
+    }
+
+    /**
+     * Creates a default list of hierarchy levels
+     */
+    public static List<HierarchyLevelTO> createHierarchyLevels() {
+        List<HierarchyLevelTO> result = new ArrayList<HierarchyLevelTO>();
+        result.add(createCode(HierarchyLevelTO.class, "0", "Hierarchy level 0"));
+        result.add(createCode(HierarchyLevelTO.class, "1", "Hierarchy level 1"));
 
         return result;
     }

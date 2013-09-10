@@ -33,6 +33,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTO;
 import org.sola.services.common.contracts.AbstractIdTO;
 
 /**
@@ -64,6 +65,7 @@ public class ApplicationTO extends AbstractIdTO {
     private List<ServiceTO> serviceList;
     private List<ApplicationPropertyTO> propertyList;
     private List<SourceTO> sourceList;
+    private List<CadastreObjectTO> cadastreObjectList;
 
     public ApplicationTO() {
         super();
@@ -273,4 +275,12 @@ public class ApplicationTO extends AbstractIdTO {
     public void setSourceList(List<SourceTO> sourceList) {
         this.sourceList = sourceList;
     }
+
+    public List<CadastreObjectTO> getCadastreObjectList() {
+        return cadastreObjectList;
+    }
+
+    public void setCadastreObjectList(List<CadastreObjectTO> cadastreObjectList) {
+        this.cadastreObjectList = cadastreObjectList;
+    } 
 }
