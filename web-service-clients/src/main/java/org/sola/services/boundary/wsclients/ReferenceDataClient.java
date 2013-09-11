@@ -178,13 +178,13 @@ public interface ReferenceDataClient extends AbstractWSClient {
      * method
      */
     public static final String GET_BA_UNIT_REL_TYPES = SERVICE_NAME + "getBaUnitRelTypes";
-    public static final String GET_LEASE_CONDITION_TYPES = SERVICE_NAME + "getLeaseConditions";
+    public static final String GET_CONDITION_TYPES = SERVICE_NAME + "getConditionTypes";
     public static final String GET_CHECKLIST_GROUPS = "getChecklistGroups";
     public static final String GET_ESTATES = "getEstates";
     public static final String GET_DISTRICTS = "getDistricts";
-
-        /**
-     * ReferenceData.getHierarchyLevels - Identifier for the getHierarchyLevels method
+    /**
+     * ReferenceData.getHierarchyLevels - Identifier for the getHierarchyLevels
+     * method
      */
     public static final String GET_HIERARCHY_LEVELS = SERVICE_NAME + "getHierarchyLevels";
 
@@ -642,9 +642,9 @@ public interface ReferenceDataClient extends AbstractWSClient {
      */
     List<BaUnitRelTypeTO> getBaUnitRelTypes() throws WebServiceClientException;
 
-    List<LeaseConditionTO> getLeaseConditions() throws WebServiceClientException;
+    List<ConditionTypeTO> getConditionTypes() throws WebServiceClientException;
 
-    List<LeaseConditionTO> getLeaseConditions(String lang) throws WebServiceClientException;
+    List<ConditionTypeTO> getConditionTypes(String lang) throws WebServiceClientException;
 
     List<ChecklistGroupTO> getChecklistGroups() throws WebServiceClientException;
 
@@ -653,14 +653,14 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<EstateTO> getEstates(String lang) throws WebServiceClientException;
 
     List<EstateTO> getEstates() throws WebServiceClientException;
-    
+
     List<DistrictTO> getDistricts(String lang) throws WebServiceClientException;
 
     List<DistrictTO> getDistricts() throws WebServiceClientException;
-    
+
     /**
-     * Retrieves all cadastre.hierarchy_level code values using the default locale of the client to
-     * localize the display values.
+     * Retrieves all cadastre.hierarchy_level code values using the default
+     * locale of the client to localize the display values.
      *
      * @throws WebServiceClientException
      */
@@ -669,9 +669,9 @@ public interface ReferenceDataClient extends AbstractWSClient {
     /**
      * Retrieves all cadastre.hierarchy_level code values.
      *
-     * @param languageCode The language code to use for localization of display values.
+     * @param languageCode The language code to use for localization of display
+     * values.
      * @throws WebServiceClientException
      */
     List<HierarchyLevelTO> getHierarchyLevels(String lang) throws WebServiceClientException;
-
 }
