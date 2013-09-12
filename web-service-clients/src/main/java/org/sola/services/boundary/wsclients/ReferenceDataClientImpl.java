@@ -696,6 +696,26 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         }
         return result;
     }
+    
+    @Override
+    public List<TownTO> getTowns() throws WebServiceClientException {
+        return getTowns(getLanguageCode());
+    }
+
+    @Override
+    public List<TownTO> getTowns(String lang) throws WebServiceClientException {
+        List<TownTO> result = null;
+        final String methodName = ReferenceDataClient.GET_TOWNS;
+        try {
+            beforeWebMethod(methodName, lang);
+            result = getPort().getTowns(lang);
+                    } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, lang);
+        }
+        return result;
+    }
 
     @Override
     public List<HierarchyLevelTO> getHierarchyLevels() throws WebServiceClientException {
