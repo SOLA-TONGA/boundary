@@ -102,11 +102,11 @@ public class MockSearchPort implements Search {
      */
     @Override
     public PropertyVerifierTO verifyApplicationProperty(String applicationNumber, String firstPart,
-            String lastPart) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+            String lastPart, String leaseNumber) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         PropertyVerifierTO defaultResponse = new PropertyVerifierTO();
         try {
             return getManager().getResponse(SearchClient.VERIFY_APPLICATION_PROPERTY,
-                    PropertyVerifierTO.class, defaultResponse, applicationNumber, firstPart, lastPart);
+                    PropertyVerifierTO.class, defaultResponse, applicationNumber, firstPart, lastPart, leaseNumber);
         } catch (Exception ex) {
             processExceptionAccess(ex);
             return null;

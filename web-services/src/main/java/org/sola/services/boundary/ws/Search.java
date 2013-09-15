@@ -53,8 +53,8 @@ import org.sola.services.ejb.search.spatial.QueryForSelect;
 import org.sola.services.ejb.search.spatial.ResultForSelectionInfo;
 
 /**
- * Web Service Boundary class to expose {@linkplain org.sola.services.ejb.search.businesslogic.SearchEJB}
- * methods.
+ * Web Service Boundary class to expose
+ * {@linkplain org.sola.services.ejb.search.businesslogic.SearchEJB} methods.
  */
 @WebService(serviceName = "search-service", targetNamespace = ServiceConstants.SEARCH_WS_NAMESPACE)
 public class Search extends AbstractWebService {
@@ -86,17 +86,17 @@ public class Search extends AbstractWebService {
     public PropertyVerifierTO VerifyApplicationProperty(
             @WebParam(name = "applicationNumber") final String applicationNumber,
             @WebParam(name = "firstPart") final String firstPart,
-            @WebParam(name = "lastPart") final String lastPart) throws SOLAFault, UnhandledFault,
+            @WebParam(name = "lastPart") final String lastPart,
+            @WebParam(name = "leaseNumber") final String leaseNumber) throws SOLAFault, UnhandledFault,
             SOLAAccessFault {
 
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 PropertyVerifier propertyVerifier =
-                        searchEJB.getPropertyVerifier(applicationNumber, firstPart, lastPart);
+                        searchEJB.getPropertyVerifier(applicationNumber, firstPart, lastPart, leaseNumber);
                 result[0] = GenericTranslator.toTO(
                         propertyVerifier, PropertyVerifierTO.class);
             }
@@ -121,7 +121,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 List<ApplicationSearchResult> appList = searchEJB.getUnassignedApplications(localeTmp);
@@ -149,7 +148,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 List<ApplicationSearchResult> appList = searchEJB.getAssignedApplications(localeTmp);
@@ -178,7 +176,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 ApplicationSearchParams params = GenericTranslator.fromTO(paramsTOTmp, ApplicationSearchParams.class, null);
@@ -207,7 +204,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = searchEJB.getSpatialResultFromSelection(queriesTmp);
@@ -234,7 +230,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 PartySearchParams params = GenericTranslator.fromTO(searchParamsTmp,
@@ -264,7 +259,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 SourceSearchParams params = GenericTranslator.fromTO(searchParamsTmp,
@@ -294,7 +288,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 PowerOfAttorneySearchParams params = GenericTranslator.fromTO(searchParams,
@@ -322,7 +315,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 List<UserSearchResult> activeUsers = searchEJB.getActiveUsers();
@@ -350,7 +342,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 UserSearchParams params = GenericTranslator.fromTO(searchParamsTmp,
@@ -380,7 +371,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 List<ApplicationLogResult> log = searchEJB.getApplicationLog(applicationIdTmp);
@@ -409,7 +399,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 BrSearchParamsTO searchParams = (BrSearchParamsTO) params[0];
@@ -441,7 +430,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 BaUnitSearchParamsTO searchParams = (BaUnitSearchParamsTO) params[0];
@@ -473,7 +461,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -503,7 +490,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -535,7 +521,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -566,7 +551,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
         final String languageCodeTmp = languageCode;
         runUnsecured(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 HashMap<String, String> mapSettings = searchEJB.getMapSettingList();
@@ -615,7 +599,6 @@ public class Search extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = searchEJB.getExtentOfPublicDisplayMap(nameLastPart);

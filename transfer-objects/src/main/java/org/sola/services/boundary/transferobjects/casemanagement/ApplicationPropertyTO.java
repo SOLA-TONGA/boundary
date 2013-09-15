@@ -60,9 +60,13 @@ public class ApplicationPropertyTO extends AbstractIdTO {
     private BigDecimal amount;
     private Date registrationDate;
     private String lessorName;
-    private String district;
-    private String nobleEstate;
+    private String islandId;
+    private String nobleEstateId;
     private String description;
+    private String townId;
+    private String lesseeName;
+    private boolean leaseLinked;
+    private String leaseBaUnitId;
 
     public ApplicationPropertyTO() {
         super();
@@ -179,7 +183,7 @@ public class ApplicationPropertyTO extends AbstractIdTO {
     public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
     }
-    
+
     public String getLessorName() {
         return lessorName;
     }
@@ -188,20 +192,28 @@ public class ApplicationPropertyTO extends AbstractIdTO {
         this.lessorName = lessorName;
     }
 
-    public String getDistrict() {
-        return district;
+    public String getIslandId() {
+        return islandId;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setIslandId(String islandId) {
+        this.islandId = islandId;
     }
 
-    public String getNobleEstate() {
-        return nobleEstate;
+    public String getNobleEstateId() {
+        return nobleEstateId;
     }
 
-    public void setNobleEstate(String nobleEstate) {
-        this.nobleEstate = nobleEstate;
+    public void setNobleEstateId(String nobleEstateId) {
+        this.nobleEstateId = nobleEstateId;
+    }
+
+    public String getTownId() {
+        return townId;
+    }
+
+    public void setTownId(String townId) {
+        this.townId = townId;
     }
 
     public String getDescription() {
@@ -210,5 +222,37 @@ public class ApplicationPropertyTO extends AbstractIdTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getLandUseCode() {
+        return landUseCode;
+    }
+
+    public void setLandUseCode(String landUseCode) {
+        this.landUseCode = landUseCode;
+    }
+
+    public String getLesseeName() {
+        return lesseeName;
+    }
+
+    public void setLesseeName(String lesseeName) {
+        this.lesseeName = lesseeName;
+    }
+
+    public boolean isLeaseLinked() {
+        return leaseLinked;
+    }
+
+    public void setLeaseLinked(boolean leaseLinked) {
+        this.leaseLinked = leaseLinked;
+    }
+
+    public String getLeaseBaUnitId() {
+        return leaseBaUnitId;
+    }
+
+    public void setLeaseBaUnitId(String leaseBaUnitId) {
+        this.leaseBaUnitId = leaseBaUnitId;
     }
 }
