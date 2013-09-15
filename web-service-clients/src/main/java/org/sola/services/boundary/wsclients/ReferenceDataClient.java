@@ -182,6 +182,7 @@ public interface ReferenceDataClient extends AbstractWSClient {
     public static final String GET_CHECKLIST_GROUPS = "getChecklistGroups";
     public static final String GET_ESTATES = "getEstates";
     public static final String GET_DISTRICTS = "getDistricts";
+    public static final String GET_TOWNS = "getTowns";
     /**
      * ReferenceData.getHierarchyLevels - Identifier for the getHierarchyLevels
      * method
@@ -657,7 +658,10 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<DistrictTO> getDistricts(String lang) throws WebServiceClientException;
 
     List<DistrictTO> getDistricts() throws WebServiceClientException;
+    
+    List<TownTO> getTowns(String lang) throws WebServiceClientException;
 
+    List<TownTO> getTowns() throws WebServiceClientException;
     /**
      * Retrieves all cadastre.hierarchy_level code values using the default
      * locale of the client to localize the display values.

@@ -651,4 +651,9 @@ public class MockReferenceDataPort implements ReferenceData {
     public List<DistrictTO> getDistricts(String languageCode) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
+    @Override
+    public List<TownTO> getTowns(String languageCode) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
