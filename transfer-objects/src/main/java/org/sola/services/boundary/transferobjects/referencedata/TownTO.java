@@ -36,17 +36,17 @@ import org.sola.services.common.contracts.AbstractCodeTO;
  * @author Admin
  */
 public class TownTO extends AbstractCodeTO{
-    private String townId;
+    private String islandId;
     
     public TownTO(){
         super();
     }
-    
-    public String getTownId(){
-        return townId;
+
+    public String getIslandId() {
+        return islandId;
     }
-    
-    public void setTownId(String townId){
-        this.townId = townId;
+
+    public void setIslandId(String islandId) {
+        this.islandId = islandId;
     }
 }

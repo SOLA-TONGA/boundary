@@ -37,17 +37,7 @@ import org.sola.services.common.contracts.AbstractCodeTO;
  */
 public class DistrictTO extends AbstractCodeTO {
 
-    private String islandId;
-
     public DistrictTO() {
         super();
-    }
-
-    public String getIslandId() {
-        return islandId;
-    }
-
-    public void setIslandId(String islandId) {
-        this.islandId = islandId;
     }
 }

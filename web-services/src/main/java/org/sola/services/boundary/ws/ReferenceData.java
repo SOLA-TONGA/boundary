@@ -953,7 +953,7 @@ public class ReferenceData extends AbstractWebService {
     }
 
     /**
-     * Retrieve the districts from the administrative.ba_unit table
+     * Retrieve the islands (a.k.a. Districts) from the administrative.ba_unit table
      *
      * @return
      * @throws SOLAFault
@@ -970,7 +970,7 @@ public class ReferenceData extends AbstractWebService {
             @Override
             public void run() {
                 String languageCode = params[0] == null ? null : params[0].toString();
-                result[0] = GenericTranslator.toTOList(administrativeEJB.getDistricts(languageCode), DistrictTO.class);
+                result[0] = GenericTranslator.toTOList(administrativeEJB.getIslands(languageCode), DistrictTO.class);
             }
         });
 
