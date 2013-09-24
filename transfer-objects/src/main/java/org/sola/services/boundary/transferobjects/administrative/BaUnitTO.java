@@ -31,6 +31,7 @@ package org.sola.services.boundary.transferobjects.administrative;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.sola.services.boundary.transferobjects.cadastre.CadastreObjectTO;
 import org.sola.services.boundary.transferobjects.casemanagement.SourceTO;
@@ -43,7 +44,7 @@ public class BaUnitTO extends AbstractIdTO {
     private String nameFirstpart;
     private String nameLastpart;
     private String statusCode;
-    private String folioRegDate;
+    private Date folioRegDate;
     private String cancellationDate;
     private boolean locked;
     private List<RrrTO> rrrList;
@@ -128,11 +129,11 @@ public class BaUnitTO extends AbstractIdTO {
         this.nameLastpart = nameLastpart;
     }
 
-    public String getFolioRegDate() {
+    public Date getFolioRegDate() {
         return folioRegDate;
     }
 
-    public void setFolioRegDate(String folioRegDate) {
+    public void setFolioRegDate(Date folioRegDate) {
         this.folioRegDate = folioRegDate;
     }
 
