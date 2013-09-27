@@ -46,6 +46,8 @@ public class BaUnitTO extends AbstractIdTO {
     private String statusCode;
     private Date folioRegDate;
     private String cancellationDate;
+    private String landUseCode;
+    private String registeredName;
     private boolean locked;
     private List<RrrTO> rrrList;
     private List<BaUnitNotationTO> baUnitNotationList;
@@ -193,6 +195,22 @@ public class BaUnitTO extends AbstractIdTO {
         this.typeCode = typeCode;
     }
 
+    public String getLandUseCode() {
+        return landUseCode;
+    }
+
+    public void setLandUseCode(String landUseCode) {
+        this.landUseCode = landUseCode;
+    }
+
+    public String getRegisteredName() {
+        return registeredName;
+    }
+
+    public void setRegisteredName(String registeredName) {
+        this.registeredName = registeredName;
+    }
+    
     public boolean isLocked() {
         return locked;
     }

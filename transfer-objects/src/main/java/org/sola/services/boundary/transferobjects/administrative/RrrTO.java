@@ -51,6 +51,11 @@ public class RrrTO extends AbstractIdTO {
     private BigDecimal mortgageInterestRate;
     private Integer mortgageRanking;
     private String mortgageTypeCode;
+    private String bookReference;
+    private String pageReference;
+    private BigDecimal term;
+    private Date receiptDate;
+    private String receiptReference;
     private boolean locked;
     private List<SourceTO> sourceList;
     private List<RrrShareTO> rrrShareList;
@@ -248,4 +253,43 @@ public class RrrTO extends AbstractIdTO {
         this.locked = locked;
     }
 
+    public String getBookReference() {
+        return bookReference;
+    }
+
+    public void setBookReference(String bookReference) {
+        this.bookReference = bookReference;
+    }
+
+    public String getPageReference() {
+        return pageReference;
+    }
+
+    public void setPageReference(String pageReference) {
+        this.pageReference = pageReference;
+    }
+
+    public BigDecimal getTerm() {
+        return term;
+    }
+
+    public void setTerm(BigDecimal term) {
+        this.term = term;
+    }
+
+    public Date getReceiptDate() {
+        return receiptDate;
+    }
+
+    public void setReceiptDate(Date receiptDate) {
+        this.receiptDate = receiptDate;
+    }
+
+    public String getReceiptReference() {
+        return receiptReference;
+    }
+
+    public void setReceiptReference(String receiptReference) {
+        this.receiptReference = receiptReference;
+    }
 }
