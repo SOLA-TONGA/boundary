@@ -871,4 +871,21 @@ public class MockCaseManagementPort implements CaseManagement {
             return null;
         }
     }
+    
+    /**
+     * Response Key = CaseManagementClient.GET_NOBLES
+     *
+     * @return default = new ArrayList<PartySummaryTO>()
+     */
+    @Override
+    public List<PartySummaryTO> getNobles() throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<PartySummaryTO> defaultResponse = new ArrayList<PartySummaryTO>();
+        try {
+            return getManager().getResponse(CaseManagementClient.GET_NOBLES,
+                    List.class, defaultResponse);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
 }

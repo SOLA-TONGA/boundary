@@ -1331,6 +1331,22 @@ public class CaseManagement extends AbstractWebService {
             });
         }
         return (List<WorkSummaryTO>) result[0];
-    }  
+    } 
+    
+    @WebMethod(operationName = "GetNobles")
+    public List<PartySummaryTO> GetNobles() throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(partyEJB.getNobles(),
+                        PartySummaryTO.class);
+            }
+        });
+
+        return (List<PartySummaryTO>) result[0];
+    }
 
 }

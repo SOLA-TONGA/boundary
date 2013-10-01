@@ -230,6 +230,10 @@ public interface CaseManagementClient extends AbstractWSClient {
     public static final String GET_SYS_REG_CERTIFICATES_APP = SERVICE_NAME + "getSysRegCerificatesByApplication";
     public static final String GET_SERVICE_CHECKLIST_ITEM = SERVICE_NAME + "getServiceChecklistItem";
     public static final String SAVE_SERVICE_CHECKLIST_ITEM = SERVICE_NAME + "saveServiceChecklistItem";
+    /*
+     * CaseManagement.getAgents - Identifier for the getNobles method
+    */
+    public static final String GET_NOBLES = SERVICE_NAME + "getNobles";
     /**
      * CaseManagement.getWorkSummary - Identifier for the getWorkSummary method
      */
@@ -764,4 +768,6 @@ public interface CaseManagementClient extends AbstractWSClient {
      * @throws WebServiceClientException
      */
     List<WorkSummaryTO> getWorkSummary(LodgementViewParamsTO paramsTO) throws WebServiceClientException;
+    
+    List<PartySummaryTO> getNobles() throws WebServiceClientException;
 }

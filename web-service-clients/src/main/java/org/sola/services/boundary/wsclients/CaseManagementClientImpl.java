@@ -730,4 +730,19 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
         }
         return result;
     }
+    
+    @Override
+    public List<PartySummaryTO> getNobles() throws WebServiceClientException {
+        List<PartySummaryTO> result = null;
+        final String methodName = CaseManagementClient.GET_NOBLES;
+        try {
+            beforeWebMethod(methodName);
+            result = getPort().getNobles();
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result);
+        }
+        return result;
+    }
 }
