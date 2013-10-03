@@ -46,7 +46,8 @@ public class BaUnitSearchResultTO extends AbstractTO {
     private String otherRightholders;
     private String parcelName;
     private String registryBookRef;
-    private transient String baUnitTypeCode;
+    private String baUnitTypeCode;
+    private String rrrTypeCode;
 
     public BaUnitSearchResultTO() {
         super();
@@ -155,4 +156,12 @@ public class BaUnitSearchResultTO extends AbstractTO {
     public void setBaUnitTypeCode(String baUnitTypeCode) {
         this.baUnitTypeCode = baUnitTypeCode;
     } 
+
+    public String getRrrTypeCode() {
+        return rrrTypeCode;
+    }
+
+    public void setRrrTypeCode(String rrrTypeCode) {
+        this.rrrTypeCode = rrrTypeCode;
+    }
 }
