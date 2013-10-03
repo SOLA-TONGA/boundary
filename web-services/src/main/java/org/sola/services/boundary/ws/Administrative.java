@@ -93,7 +93,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdate(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 BaUnit newBaUnit = administrativeEJB.createBaUnit(
@@ -128,7 +127,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdate(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 if (baUnitTOTmp != null) {
@@ -164,7 +162,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String baUnitId = (String) params[0];
@@ -195,7 +192,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String baUnitId = (String) params[0];
@@ -221,7 +217,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runOpenQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
@@ -255,7 +250,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {new ArrayList<BaUnitTO>()};
 
         runOpenQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 String serviceId = (String) params[0];
@@ -289,7 +283,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runOpenQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
@@ -317,7 +310,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runOpenQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
@@ -349,7 +341,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdate(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 BaUnitArea newBaUnitArea = administrativeEJB.createBaUnitArea(
@@ -383,7 +374,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runOpenQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
@@ -416,7 +406,6 @@ public class Administrative extends AbstractWebService {
 
 //        runGeneralQuery(wsContext, new Runnable() {
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -450,7 +439,6 @@ public class Administrative extends AbstractWebService {
 
 //        runGeneralQuery(wsContext, new Runnable() {
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -484,7 +472,6 @@ public class Administrative extends AbstractWebService {
 
 //        runGeneralQuery(wsContext, new Runnable() {
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTOList(
@@ -518,7 +505,6 @@ public class Administrative extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = administrativeEJB.publicDisplay(
@@ -548,7 +534,6 @@ public class Administrative extends AbstractWebService {
         final String languageCodeTmp = languageCode;
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 SysRegManagementParams params = GenericTranslator.fromTO(paramsTOTmp, SysRegManagementParams.class, null);
@@ -561,8 +546,8 @@ public class Administrative extends AbstractWebService {
 
         return (List<SysRegManagementTO>) result[0];
     }
-    
-     /**
+
+    /**
      * See {@linkplain org.sola.services.ejb.administrative.businesslogic.AdministrativeEJB#getSysRegStatus(java.lang.String)
      * AdministrativeEJB.getSysRegStatus}
      *
@@ -581,7 +566,6 @@ public class Administrative extends AbstractWebService {
         final String languageCodeTmp = languageCode;
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 SysRegManagementParams params = GenericTranslator.fromTO(paramsTOTmp, SysRegManagementParams.class, null);
@@ -594,8 +578,8 @@ public class Administrative extends AbstractWebService {
 
         return (List<SysRegStatusTO>) result[0];
     }
-    
-     /**
+
+    /**
      * See {@linkplain org.sola.services.ejb.administrative.businesslogic.AdministrativeEJB#getSysRegProgress(java.lang.String)
      * AdministrativeEJB.getSysRegProgress}
      *
@@ -614,7 +598,6 @@ public class Administrative extends AbstractWebService {
         final String languageCodeTmp = languageCode;
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 SysRegManagementParams params = GenericTranslator.fromTO(paramsTOTmp, SysRegManagementParams.class, null);
@@ -626,5 +609,31 @@ public class Administrative extends AbstractWebService {
         });
 
         return (List<SysRegProgressTO>) result[0];
+    }
+
+    /**
+     * See {@linkplain org.sola.services.ejb.administrative.businesslogic.AdministrativeEJB#getPaymentHistory(java.lang.String)
+     * AdministrativeEJB.getPaymentHistory}
+     *
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "GetPaymentHistory")
+    public List<RrrPaymentHistoryTO> GetPaymentHistory(
+            @WebParam(name = "rrrId") String rrrId)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+        final String rrrIdTmp = rrrId;
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                List<RrrPaymentHistory> list = administrativeEJB.getPaymentHistory(rrrIdTmp);
+                result[0] = GenericTranslator.toTOList(list, RrrPaymentHistoryTO.class);
+            }
+        });
+        return (List<RrrPaymentHistoryTO>) result[0];
     }
 }

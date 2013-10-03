@@ -238,12 +238,12 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
         final String methodName = AdministrativeClient.GET_SYS_REG_REGIST_LISTING;
         String languageCode = getLanguageCode();
         try {
-            beforeWebMethod(methodName, searchString,languageCode);
-            result = getPort().getSysRegPubDisParcelNameByLocation(searchString,languageCode);
+            beforeWebMethod(methodName, searchString, languageCode);
+            result = getPort().getSysRegPubDisParcelNameByLocation(searchString, languageCode);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {
-            afterWebMethod(methodName, result, searchString,languageCode);
+            afterWebMethod(methodName, result, searchString, languageCode);
         }
         return result;
     }
@@ -256,11 +256,11 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
         String languageCode = getLanguageCode();
         try {
             beforeWebMethod(methodName, searchString, languageCode);
-            result = getPort().getSysRegPubDisOwnerNameByLocation(searchString,languageCode);
+            result = getPort().getSysRegPubDisOwnerNameByLocation(searchString, languageCode);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {
-            afterWebMethod(methodName, result, searchString,languageCode);
+            afterWebMethod(methodName, result, searchString, languageCode);
         }
         return result;
     }
@@ -272,16 +272,16 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
         final String methodName = AdministrativeClient.GET_SYS_REG_STATELAND_LISTING;
         String languageCode = getLanguageCode();
         try {
-            beforeWebMethod(methodName, searchString,languageCode);
-            result = getPort().getSysRegPubDisStateLandByLocation(searchString,languageCode);
+            beforeWebMethod(methodName, searchString, languageCode);
+            result = getPort().getSysRegPubDisStateLandByLocation(searchString, languageCode);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {
-            afterWebMethod(methodName, result, searchString,languageCode);
+            afterWebMethod(methodName, result, searchString, languageCode);
         }
         return result;
     }
-    
+
     @Override
     public List<ValidationResult> publicDisplay(String params)
             throws WebServiceClientException {
@@ -298,7 +298,7 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
         }
         return result;
     }
-    
+
     @Override
     public List<SysRegManagementTO> getSysRegManagement(SysRegManagementParamsTO sysRegManagementParamsTO)
             throws WebServiceClientException {
@@ -306,47 +306,63 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
         final String methodName = AdministrativeClient.GET_SYS_REG_MANAGEMENT;
         String languageCode = getLanguageCode();
         try {
-            beforeWebMethod(methodName, sysRegManagementParamsTO,languageCode);
-            result = getPort().getSysRegManagement(sysRegManagementParamsTO,languageCode);
+            beforeWebMethod(methodName, sysRegManagementParamsTO, languageCode);
+            result = getPort().getSysRegManagement(sysRegManagementParamsTO, languageCode);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {
-            afterWebMethod(methodName, result, sysRegManagementParamsTO,languageCode);
+            afterWebMethod(methodName, result, sysRegManagementParamsTO, languageCode);
         }
         return result;
     }
 
-     @Override
+    @Override
     public List<SysRegStatusTO> getSysRegStatus(SysRegManagementParamsTO sysRegManagementParamsTO)
             throws WebServiceClientException {
         List<SysRegStatusTO> result = null;
         final String methodName = AdministrativeClient.GET_SYS_REG_STATUS;
         String languageCode = getLanguageCode();
         try {
-            beforeWebMethod(methodName, sysRegManagementParamsTO,languageCode);
-            result = getPort().getSysRegStatus(sysRegManagementParamsTO,languageCode);
+            beforeWebMethod(methodName, sysRegManagementParamsTO, languageCode);
+            result = getPort().getSysRegStatus(sysRegManagementParamsTO, languageCode);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {
-            afterWebMethod(methodName, result, sysRegManagementParamsTO,languageCode);
+            afterWebMethod(methodName, result, sysRegManagementParamsTO, languageCode);
         }
         return result;
     }
-     
-     @Override
+
+    @Override
     public List<SysRegProgressTO> getSysRegProgress(SysRegManagementParamsTO sysRegManagementParamsTO)
             throws WebServiceClientException {
         List<SysRegProgressTO> result = null;
         final String methodName = AdministrativeClient.GET_SYS_REG_PROGRESS;
         String languageCode = getLanguageCode();
         try {
-            beforeWebMethod(methodName, sysRegManagementParamsTO,languageCode);
-            result = getPort().getSysRegProgress(sysRegManagementParamsTO,languageCode);
+            beforeWebMethod(methodName, sysRegManagementParamsTO, languageCode);
+            result = getPort().getSysRegProgress(sysRegManagementParamsTO, languageCode);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {
-            afterWebMethod(methodName, result, sysRegManagementParamsTO,languageCode);
+            afterWebMethod(methodName, result, sysRegManagementParamsTO, languageCode);
         }
         return result;
-    } 
+    }
+
+    @Override
+    public List<RrrPaymentHistoryTO> getPaymentHistory(String rrrId) 
+            throws WebServiceClientException {
+        List<RrrPaymentHistoryTO> result = null;
+        final String methodName = AdministrativeClient.GET_PAYMENT_HISTORY;
+        try {
+            beforeWebMethod(methodName, rrrId);
+            result = getPort().getPaymentHistory(rrrId);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, rrrId);
+        }
+        return result;
+    }
 }
