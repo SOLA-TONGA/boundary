@@ -636,4 +636,30 @@ public class Administrative extends AbstractWebService {
         });
         return (List<RrrPaymentHistoryTO>) result[0];
     }
+
+    /**
+     * See {@linkplain org.sola.services.ejb.administrative.businesslogic.AdministrativeEJB#saveCashierImport(java.util.List)
+     * AdministrativeEJB.saveCashierImport}
+     *
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     * @throws OptimisticLockingFault
+     */
+    @WebMethod(operationName = "SaveCashierImport")
+    public String saveCashierImport(@WebParam(name = "cashierRecords") List<CashierImportTO> cashierRecords)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault {
+
+        final Object[] result = {null};
+        final List<CashierImportTO> tmpTOList = cashierRecords;
+
+        runUpdate(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = administrativeEJB.saveCashierImport(
+                        GenericTranslator.fromTOList(tmpTOList, CashierImport.class, null));
+            }
+        });
+        return (String) result[0];
+    }
 }

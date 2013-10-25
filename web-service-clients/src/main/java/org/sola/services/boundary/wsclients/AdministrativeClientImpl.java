@@ -351,7 +351,7 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
     }
 
     @Override
-    public List<RrrPaymentHistoryTO> getPaymentHistory(String rrrId) 
+    public List<RrrPaymentHistoryTO> getPaymentHistory(String rrrId)
             throws WebServiceClientException {
         List<RrrPaymentHistoryTO> result = null;
         final String methodName = AdministrativeClient.GET_PAYMENT_HISTORY;
@@ -362,6 +362,22 @@ public class AdministrativeClientImpl extends AbstractWSClientImpl
             processException(methodName, e);
         } finally {
             afterWebMethod(methodName, result, rrrId);
+        }
+        return result;
+    }
+
+    @Override
+    public String saveCashierImport(List<CashierImportTO> cashierRecords)
+            throws WebServiceClientException {
+        String result = null;
+        final String methodName = AdministrativeClient.SAVE_CASHIER_IMPORT;
+        try {
+            beforeWebMethod(methodName, cashierRecords);
+            result = getPort().saveCashierImport(cashierRecords);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, cashierRecords);
         }
         return result;
     }

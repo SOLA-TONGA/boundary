@@ -126,6 +126,7 @@ public interface AdministrativeClient extends AbstractWSClient {
     public static final String GET_SYS_REG_STATUS = SERVICE_NAME + "getSysRegStatus";
     public static final String GET_SYS_REG_PROGRESS = SERVICE_NAME + "getSysRegProgress";
     public static final String GET_PAYMENT_HISTORY = SERVICE_NAME + "getPaymentHistory";
+    public static final String SAVE_CASHIER_IMPORT = SERVICE_NAME + "saveCashierImport";
 
     /**
      * Creates a new BA Unit Area for a BaUnitId
@@ -164,7 +165,7 @@ public interface AdministrativeClient extends AbstractWSClient {
     /**
      * Saves any updates to an existing BA Unit. Can also be used to create a
      * new BA Unit, however this method does not set any default values on the
-     * BA Unit like      {@linkplain #createBaUnit(java.lang.String, org.sola.webservices.transferobjects.administrative.BaUnitTO)
+     * BA Unit like null     {@linkplain #createBaUnit(java.lang.String, org.sola.webservices.transferobjects.administrative.BaUnitTO)
      * createBaUnit}. Will also create a new Transaction record for the BA Unit
      * if the Service is not already associated to a Transaction.
      *
@@ -316,4 +317,19 @@ public interface AdministrativeClient extends AbstractWSClient {
             throws WebServiceClientException;
 
     List<RrrPaymentHistoryTO> getPaymentHistory(String rrrId) throws WebServiceClientException;
+
+    /**
+     * Processes lease payment records from the Cashier database and updates the
+     * details into SOLA.
+     *
+     * Note that the repository will only issue an update if at least one of the
+     * attribute values on the paymentHistory record is changed. This will
+     * ensure any records from the cashier database that are resubmitted to SOLA
+     * will not result in false updates.
+     *
+     * @param cashierRecords
+     * @return Validation and progress message.
+     * @throws WebServiceClientException
+     */
+    String saveCashierImport(List<CashierImportTO> cashierRecords) throws WebServiceClientException;
 }

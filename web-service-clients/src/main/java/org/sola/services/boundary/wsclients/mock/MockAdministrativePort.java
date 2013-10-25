@@ -458,4 +458,23 @@ public class MockAdministrativePort implements Administrative {
             return null;
         }
     }
+
+    /**
+     * Response Key = CaseManagementClient.SAVE_CASHIER_IMPORT
+     *
+     * @return default = ""
+     */
+    @Override
+    public String saveCashierImport(List<CashierImportTO> cashierRecords)
+            throws OptimisticLockingFault, SOLAAccessFault, SOLAFault, UnhandledFault {
+        String defaultResponse = "";
+        try {
+            return getManager().getResponse(AdministrativeClient.SAVE_CASHIER_IMPORT,
+                    String.class, defaultResponse, cashierRecords);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+
+    }
 }
