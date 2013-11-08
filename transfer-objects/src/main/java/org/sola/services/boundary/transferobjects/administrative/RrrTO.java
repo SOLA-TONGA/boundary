@@ -59,6 +59,7 @@ public class RrrTO extends AbstractIdTO {
     private String receiptReference;
     private BigDecimal receiptAmount;
     private String otherRightholderName;
+    private Date startDate;
     private boolean locked;
     private List<SourceTO> sourceList;
     private List<RrrShareTO> rrrShareList;
@@ -302,5 +303,13 @@ public class RrrTO extends AbstractIdTO {
 
     public void setOtherRightholderName(String otherRightholderName) {
         this.otherRightholderName = otherRightholderName;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 }
