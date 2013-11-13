@@ -175,7 +175,8 @@ public interface SearchClient extends AbstractWSClient {
      * @param lastPart The last part of the property name.
      * @throws WebServiceClientException
      */
-    PropertyVerifierTO verifyApplicationProperty(String applicationNumber, String firstPart, String lastPart, String leaseNumber)
+    PropertyVerifierTO verifyApplicationProperty(String applicationNumber, String firstPart, String lastPart, String leaseNumber,
+            String subleaseNumber)
             throws WebServiceClientException;
 
     /**

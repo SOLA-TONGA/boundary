@@ -39,7 +39,7 @@ import org.sola.services.common.contracts.AbstractTO;
  */
 public class PropertyVerifierTO extends AbstractTO {
 
-    private String lotbaUnitId;
+    private String lotBaUnitId;
     private String deedNumber;
     private String folio;
     private String holderName;
@@ -56,17 +56,20 @@ public class PropertyVerifierTO extends AbstractTO {
     private BigDecimal leaseRental;
     private BigDecimal leaseTerm;
     private String applicationsWhereFound;
+    private String subleaseNumber;
+    private String subleaseBaUnitId;
+    private boolean subleaseLinked;
 
     public PropertyVerifierTO() {
         super();
     }
 
-    public String getLotbaUnitId() {
-        return lotbaUnitId;
+    public String getLotBaUnitId() {
+        return lotBaUnitId;
     }
 
-    public void setLotbaUnitId(String lotbaUnitId) {
-        this.lotbaUnitId = lotbaUnitId;
+    public void setLotBaUnitId(String lotbaUnitId) {
+        this.lotBaUnitId = lotbaUnitId;
     }
 
     public String getDeedNumber() {
@@ -195,5 +198,29 @@ public class PropertyVerifierTO extends AbstractTO {
 
     public void setApplicationsWhereFound(String applicationsWhereFound) {
         this.applicationsWhereFound = applicationsWhereFound;
+    }
+
+    public String getSubleaseNumber() {
+        return subleaseNumber;
+    }
+
+    public void setSubleaseNumber(String subleaseNumber) {
+        this.subleaseNumber = subleaseNumber;
+    }
+
+    public String getSubleaseBaUnitId() {
+        return subleaseBaUnitId;
+    }
+
+    public void setSubleaseBaUnitId(String subleaseBaUnitId) {
+        this.subleaseBaUnitId = subleaseBaUnitId;
+    }
+
+    public boolean isSubleaseLinked() {
+        return subleaseLinked;
+    }
+
+    public void setSubleaseLinked(boolean subleaseLinked) {
+        this.subleaseLinked = subleaseLinked;
     }
 }

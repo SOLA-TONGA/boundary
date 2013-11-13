@@ -87,7 +87,8 @@ public class Search extends AbstractWebService {
             @WebParam(name = "applicationNumber") final String applicationNumber,
             @WebParam(name = "firstPart") final String firstPart,
             @WebParam(name = "lastPart") final String lastPart,
-            @WebParam(name = "leaseNumber") final String leaseNumber) throws SOLAFault, UnhandledFault,
+            @WebParam(name = "leaseNumber") final String leaseNumber,
+            @WebParam(name = "subleaseNumber") final String subleaseNumber) throws SOLAFault, UnhandledFault,
             SOLAAccessFault {
 
         final Object[] result = {null};
@@ -96,7 +97,8 @@ public class Search extends AbstractWebService {
             @Override
             public void run() {
                 PropertyVerifier propertyVerifier =
-                        searchEJB.getPropertyVerifier(applicationNumber, firstPart, lastPart, leaseNumber);
+                        searchEJB.getPropertyVerifier(applicationNumber, firstPart, lastPart,
+                        leaseNumber, subleaseNumber);
                 result[0] = GenericTranslator.toTO(
                         propertyVerifier, PropertyVerifierTO.class);
             }

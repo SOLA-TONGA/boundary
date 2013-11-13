@@ -39,6 +39,7 @@ public class BaUnitNotationTO extends AbstractIdTO {
     private String referenceNr;
     private boolean locked;
     private Date changeTime;
+    private String changeUser; 
 
     public Date getChangeTime() {
         return changeTime;
@@ -100,5 +101,12 @@ public class BaUnitNotationTO extends AbstractIdTO {
     public void setLocked(boolean locked) {
         this.locked = locked;
     }
-    
+
+    public String getChangeUser() {
+        return changeUser;
+    }
+
+    public void setChangeUser(String changeUser) {
+        this.changeUser = changeUser;
+    }
 }

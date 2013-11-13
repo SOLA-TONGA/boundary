@@ -67,6 +67,9 @@ public class ApplicationPropertyTO extends AbstractIdTO {
     private String lesseeName;
     private boolean leaseLinked;
     private String leaseBaUnitId;
+    private String subleaseNumber;
+    private boolean subleaseLinked;
+    private String subleaseBaUnitId;
 
     public ApplicationPropertyTO() {
         super();
@@ -254,5 +257,29 @@ public class ApplicationPropertyTO extends AbstractIdTO {
 
     public void setLeaseBaUnitId(String leaseBaUnitId) {
         this.leaseBaUnitId = leaseBaUnitId;
+    }
+
+    public String getSubleaseNumber() {
+        return subleaseNumber;
+    }
+
+    public void setSubleaseNumber(String subleaseNumber) {
+        this.subleaseNumber = subleaseNumber;
+    }
+
+    public boolean isSubleaseLinked() {
+        return subleaseLinked;
+    }
+
+    public void setSubleaseLinked(boolean subleaseLinked) {
+        this.subleaseLinked = subleaseLinked;
+    }
+
+    public String getSubleaseBaUnitId() {
+        return subleaseBaUnitId;
+    }
+
+    public void setSubleaseBaUnitId(String subleaseBaUnitId) {
+        this.subleaseBaUnitId = subleaseBaUnitId;
     }
 }

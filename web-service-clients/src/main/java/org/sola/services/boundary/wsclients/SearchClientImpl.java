@@ -74,13 +74,14 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
 
     @Override
     public PropertyVerifierTO verifyApplicationProperty(String applicationNumber, String firstPart, String lastPart,
-            String leaseNumber)
+            String leaseNumber, String subleaseNumber)
             throws WebServiceClientException {
         PropertyVerifierTO result = null;
         final String methodName = SearchClient.VERIFY_APPLICATION_PROPERTY;
         try {
             beforeWebMethod(methodName, applicationNumber, firstPart, lastPart);
-            result = getPort().verifyApplicationProperty(applicationNumber, firstPart, lastPart, leaseNumber);
+            result = getPort().verifyApplicationProperty(applicationNumber, firstPart, lastPart, 
+                    leaseNumber, subleaseNumber);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {
