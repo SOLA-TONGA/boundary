@@ -18,6 +18,8 @@ import org.sola.services.common.br.ValidationResult;
 import org.sola.services.common.contracts.GenericTranslator;
 import org.sola.services.common.faults.*;
 import org.sola.services.common.webservices.AbstractWebService;
+import org.sola.services.ejb.bulkload.businesslogic.BulkLoadEJB;
+import org.sola.services.ejb.bulkload.businesslogic.BulkLoadEJBLocal;
 import org.sola.services.ejb.search.businesslogic.SearchEJBLocal;
 import org.sola.services.ejb.source.businesslogic.SourceEJBLocal;
 import org.sola.services.ejb.source.repository.entities.TransactionBulkOperationSource;
@@ -30,7 +32,7 @@ import org.sola.services.ejb.transaction.repository.entities.TransactionType;
  * @author Elton Manoku
  */
 @WebService(serviceName = "bulkoperations-service",
-targetNamespace = ServiceConstants.BULK_OPERATIONS_WS_NAMESPACE)
+        targetNamespace = ServiceConstants.BULK_OPERATIONS_WS_NAMESPACE)
 public class BulkOperations extends AbstractWebService {
 
     @EJB
@@ -38,7 +40,7 @@ public class BulkOperations extends AbstractWebService {
     @EJB
     private SourceEJBLocal sourceEJB;
     @EJB
-    private SearchEJBLocal searchEJB;
+    private BulkLoadEJBLocal bulkLoadEJB;
     @Resource
     private WebServiceContext wsContext;
 
@@ -64,8 +66,8 @@ public class BulkOperations extends AbstractWebService {
      */
     @WebMethod(operationName = "RejectTransaction")
     public boolean RejectTransaction(
-            @WebParam(name = "transactionId") 
-                    final String transactionId,
+            @WebParam(name = "transactionId")
+            final String transactionId,
             @WebParam(name = "rowVersion") final int rowVersion)
             throws SOLAValidationFault, OptimisticLockingFault,
             SOLAFault, UnhandledFault, SOLAAccessFault {
@@ -73,7 +75,6 @@ public class BulkOperations extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = transactionEJB.rejectTransactionWithId(transactionId, rowVersion);
@@ -91,7 +92,6 @@ public class BulkOperations extends AbstractWebService {
         final Object[] result = {null};
 
         runGeneralQuery(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(
@@ -115,8 +115,8 @@ public class BulkOperations extends AbstractWebService {
      */
     @WebMethod(operationName = "SaveTransactionBulkOperationSpatial")
     public List<ValidationResult> SaveTransactionBulkOperationSpatial(
-            @WebParam(name = "transactionTO") 
-                    final TransactionBulkOperationSpatialTO transactionTO,
+            @WebParam(name = "transactionTO")
+            final TransactionBulkOperationSpatialTO transactionTO,
             @WebParam(name = "languageCode") final String languageCode)
             throws SOLAValidationFault, OptimisticLockingFault,
             SOLAFault, UnhandledFault, SOLAAccessFault {
@@ -124,7 +124,6 @@ public class BulkOperations extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 TransactionBulkOperationSpatial targetTransaction =
@@ -154,8 +153,8 @@ public class BulkOperations extends AbstractWebService {
      */
     @WebMethod(operationName = "SaveTransactionBulkOperationSource")
     public List<ValidationResult> SaveTransactionBulkOperationSource(
-            @WebParam(name = "transactionTO") 
-                    final TransactionBulkOperationSourceTO transactionTO,
+            @WebParam(name = "transactionTO")
+            final TransactionBulkOperationSourceTO transactionTO,
             @WebParam(name = "languageCode") final String languageCode)
             throws SOLAValidationFault, OptimisticLockingFault,
             SOLAFault, UnhandledFault, SOLAAccessFault {
@@ -163,14 +162,13 @@ public class BulkOperations extends AbstractWebService {
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 TransactionBulkOperationSource targetTransaction =
                         sourceEJB.getTransactionBulkOperationById(transactionTO.getId());
                 TransactionBulkOperationSource transaction = GenericTranslator.fromTO(
-                        transactionTO, 
-                        TransactionBulkOperationSource.class, 
+                        transactionTO,
+                        TransactionBulkOperationSource.class,
                         targetTransaction);
                 result[0] = sourceEJB.saveTransactionBulkOperation(transaction, languageCode);
             }
@@ -179,4 +177,87 @@ public class BulkOperations extends AbstractWebService {
         return (List<ValidationResult>) result[0];
     }
 
+    /**
+     * See
+     * {@linkplain org.sola.services.ejb.bulkload.businesslogic.BulkLoadEJB#getProgressMessage() BulkLoadEJB.getProgressMessage}
+     *
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "GetBulkLoadProgressMessage")
+    public String getBulkLoadProgressMessage()
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+        String result = "";
+
+        try {
+            // Avoid using a transaction when executing this method. 
+            result = bulkLoadEJB.getProgressMessage();
+        } catch (Exception ex) {
+            Exception fault = FaultUtility.ProcessException(ex);
+            if (fault.getClass() == SOLAFault.class) {
+                throw (SOLAFault) fault;
+            }
+            throw (UnhandledFault) fault;
+        } finally {
+            cleanUp();
+        }
+        return result;
+    }
+
+    /**
+     * See null     {@linkplain org.sola.services.ejb.bulkload.businesslogic.BulkLoadEJB#loadDocuments(java.lang.String, 
+     * java.lang.String)  BulkLoadEJB.loadDocuments}
+     *
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "LoadDocuments")
+    public String loadDocuments(
+            @WebParam(name = "docType") String docType,
+            @WebParam(name = "sourceFolder") String sourceFolder)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+        String result = "";
+
+        try {
+            // Avoid using a transaction when executing this method. 
+            result = bulkLoadEJB.loadDocuments(docType, sourceFolder);
+        } catch (Exception ex) {
+            Exception fault = FaultUtility.ProcessException(ex);
+            if (fault.getClass() == SOLAFault.class) {
+                throw (SOLAFault) fault;
+            }
+            throw (UnhandledFault) fault;
+        } finally {
+            cleanUp();
+        }
+        return result;
+    }
+
+    /**
+     * See
+     * {@linkplain org.sola.services.ejb.bulkload.businesslogic.BulkLoadEJB#getProgressMessage() BulkLoadEJB.getProgressMessage}
+     *
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "CancelLoad")
+    public void cancelLoad()
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        try {
+            // Avoid using a transaction when executing this method. 
+            bulkLoadEJB.cancelLoad();
+        } catch (Exception ex) {
+            Exception fault = FaultUtility.ProcessException(ex);
+            if (fault.getClass() == SOLAFault.class) {
+                throw (SOLAFault) fault;
+            }
+            throw (UnhandledFault) fault;
+        } finally {
+            cleanUp();
+        }
+    }
 }

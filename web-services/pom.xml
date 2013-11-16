@@ -96,6 +96,11 @@
             <artifactId>sola-admin</artifactId>
             <version>${project.version}</version>
         </dependency>
+                <dependency>
+            <groupId>org.sola.services.ejbs</groupId>
+            <artifactId>sola-bulk-load</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>

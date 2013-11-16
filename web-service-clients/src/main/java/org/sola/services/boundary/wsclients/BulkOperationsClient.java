@@ -48,7 +48,23 @@ public interface BulkOperationsClient extends AbstractWSClient {
      */
     public static final String SAVE_TRANSACTION_BULK_OPERATION_SOURCE =
             SERVICE_NAME + "saveTransactionBulkOperationSource";
-    
+    /**
+     * BulkOperations.getBulkLoadProgressMessage - Identifier for the
+     * getBulkLoadProgressMessage method
+     */
+    public static final String GET_BULK_LOAD_PROGRESS_MESSAGE =
+            SERVICE_NAME + "getBulkLoadProgressMessage";
+    /**
+     * BulkOperations.loadDocuments - Identifier for the loadDocuments method
+     */
+    public static final String LOAD_DOCUMENTS =
+            SERVICE_NAME + "loadDocuments";
+    /**
+     * BulkOperations.cancelLoad - Identifier for the cancelLoad method
+     */
+    public static final String CANCEL_LOAD =
+            SERVICE_NAME + "cancelLoad";
+
     /**
      * It rejects a bulk operation by removing the uploaded records.
      */
@@ -79,4 +95,33 @@ public interface BulkOperationsClient extends AbstractWSClient {
     List<ValidationResult> saveTransactionBulkOperationSource(
             TransactionBulkOperationSourceTO transactionTO);
 
+    /**
+     * Loads documents from the specified a folder on the computer hosting the
+     * SOLA Services. Documents in the subfolders are also loaded. Every
+     * document is given the same document type.
+     *
+     * Documents are loaded independently of a transaction to prevent rollback
+     * of load if an exception occurs.
+     *
+     * @param docType The type of document to load. Must be a value from
+     * source.adminstrative_source_type
+     * @param sourceFolder The source folder to load the documents from. Must be
+     * a folder on the computer hosting the SOLA Services. This version of the
+     * method does not currently support loading documents from a shared folder
+     * on another computer
+     * @return The final set of progress messages.
+     */
+    String loadDocuments(String docType, String sourceFolder);
+
+    /**
+     * Returns the current progressMessage. Avoid using any transaction so that
+     * the progress message can be obtained at any state of the bulk load
+     * process
+     */
+    String getBulkLoadProgressMessage();
+
+    /**
+     * Sets a flag that will cancel the load process
+     */
+    void cancelLoad();
 }

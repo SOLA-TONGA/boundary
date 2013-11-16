@@ -17,7 +17,7 @@ import org.sola.webservices.transferobjects.transaction.TransactionBulkOperation
  *
  * @author Elton Manoku
  */
-public class BulkOperationsClientImpl  extends AbstractWSClientImpl implements BulkOperationsClient {
+public class BulkOperationsClientImpl extends AbstractWSClientImpl implements BulkOperationsClient {
 
     private static final String NAMESPACE_URI = "http://webservices.sola.org/bulkoperations";
     private static final String LOCAL_PART = "bulkoperations-service";
@@ -50,7 +50,7 @@ public class BulkOperationsClientImpl  extends AbstractWSClientImpl implements B
         }
         return result;
     }
-    
+
     @Override
     public boolean rejectTransaction(
             String transactionId, int rowVersion) throws WebServiceClientException {
@@ -68,8 +68,8 @@ public class BulkOperationsClientImpl  extends AbstractWSClientImpl implements B
 
     @Override
     public List<ValidationResult> saveTransactionBulkOperationSpatial(
-            TransactionBulkOperationSpatialTO transactionTO) 
-    throws WebServiceClientException {
+            TransactionBulkOperationSpatialTO transactionTO)
+            throws WebServiceClientException {
         List<ValidationResult> result = null;
         final String methodName = BulkOperationsClient.SAVE_TRANSACTION_BULK_OPERATION_SPATIAL;
         String languageCode = this.getLanguageCode();
@@ -100,11 +100,11 @@ public class BulkOperationsClientImpl  extends AbstractWSClientImpl implements B
         }
         return result;
     }
-        
+
     @Override
     public List<ValidationResult> saveTransactionBulkOperationSource(
-            TransactionBulkOperationSourceTO transactionTO) 
-    throws WebServiceClientException {
+            TransactionBulkOperationSourceTO transactionTO)
+            throws WebServiceClientException {
         List<ValidationResult> result = null;
         final String methodName = BulkOperationsClient.SAVE_TRANSACTION_BULK_OPERATION_SOURCE;
         String languageCode = this.getLanguageCode();
@@ -120,4 +120,49 @@ public class BulkOperationsClientImpl  extends AbstractWSClientImpl implements B
         return result;
     }
 
+    @Override
+    public String getBulkLoadProgressMessage()
+            throws WebServiceClientException {
+        String result = null;
+        final String methodName = BulkOperationsClient.GET_BULK_LOAD_PROGRESS_MESSAGE;
+        try {
+            beforeWebMethod(methodName);
+            result = getPort().getBulkLoadProgressMessage();
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result);
+        }
+        return result;
+    }
+
+    @Override
+    public String loadDocuments(String docType, String sourceFolder)
+            throws WebServiceClientException {
+        String result = null;
+        final String methodName = BulkOperationsClient.LOAD_DOCUMENTS;
+        try {
+            beforeWebMethod(methodName, docType, sourceFolder);
+            result = getPort().loadDocuments(docType, sourceFolder);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, docType, sourceFolder);
+        }
+        return result;
+    }
+    
+      @Override
+    public void cancelLoad()
+            throws WebServiceClientException {
+        final String methodName = BulkOperationsClient.CANCEL_LOAD;
+        try {
+            beforeWebMethod(methodName);
+            getPort().cancelLoad();
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, null);
+        }
+    }
 }
