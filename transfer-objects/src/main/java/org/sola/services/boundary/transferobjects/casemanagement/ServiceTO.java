@@ -59,6 +59,8 @@ public class ServiceTO extends AbstractIdTO {
     private boolean actionCompleted;
     private Date approvalDate;
     private String approvalNumber;
+    private String reportTextOne;
+    private String reportTextTwo;
 
     public String getConcatenatedName() {
         return concatenatedName;
@@ -190,6 +192,22 @@ public class ServiceTO extends AbstractIdTO {
     
     public void setApprovalNumber(String approvalNumber){
         this.approvalNumber = approvalNumber;
+    }
+    
+    public String getReportTextOne() {
+        return reportTextOne;
+    }
+
+    public void setReportTextOne(String reportTextOne) {
+        this.reportTextOne = reportTextOne;
+    }
+
+    public String getReportTextTwo() {
+        return reportTextTwo;
+    }
+
+    public void setReportTextTwo(String reportTextTwo) {
+        this.reportTextTwo = reportTextTwo;
     }
     
 }
