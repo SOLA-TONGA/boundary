@@ -67,6 +67,7 @@ public class RrrTO extends AbstractIdTO {
     private List<PartySummaryTO> rightHolderList;
     private List<ConditionForRrrTO> conditionsList;
     private String concatenatedName;
+    private String rrrReference;
 
     public String getConcatenatedName() {
         return concatenatedName;
@@ -311,5 +312,13 @@ public class RrrTO extends AbstractIdTO {
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
+    }
+
+    public String getRrrReference() {
+        return rrrReference;
+    }
+
+    public void setRrrReference(String rrrReference) {
+        this.rrrReference = rrrReference;
     }
 }
