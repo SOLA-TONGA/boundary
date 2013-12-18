@@ -46,6 +46,7 @@ public class BaUnitSearchParamsTO extends AbstractTO {
     private String otherRightholder;
     private String townId;
     private String islandId;
+    private String estateName;
 
     public BaUnitSearchParamsTO() {
         super();
@@ -162,4 +163,13 @@ public class BaUnitSearchParamsTO extends AbstractTO {
     public void setIslandId(String islandId) {
         this.islandId = islandId;
     }
+
+    public String getEstateName() {
+        return estateName;
+    }
+
+    public void setEstateName(String estateName) {
+        this.estateName = estateName;
+    }
+    
 }
