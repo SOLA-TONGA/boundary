@@ -41,6 +41,7 @@ public class ApplicationSearchParamsTO extends AbstractTO {
     private String documentNumber;
     private String documentReference;
     private String itemNumber;
+    private String rrrReference;
 
     public ApplicationSearchParamsTO() {
     }
@@ -115,5 +116,13 @@ public class ApplicationSearchParamsTO extends AbstractTO {
     
     public void setItemNumber(String itemNumber){
         this.itemNumber = itemNumber;
-    }     
+    }  
+    
+    public String getRrrReference() {
+        return rrrReference;
+    }
+
+    public void setRrrReference(String rrrReference) {
+        this.rrrReference = rrrReference;
+    }
 }
