@@ -46,7 +46,7 @@ public class BaUnitSearchResultTO extends AbstractTO {
     private String registryBookRef;
     private String baUnitTypeCode;
     private String rrrTypeCode;
-    private String rrrReference;
+    private String estateName;
 
     public BaUnitSearchResultTO() {
         super();
@@ -163,12 +163,12 @@ public class BaUnitSearchResultTO extends AbstractTO {
     public void setRrrTypeCode(String rrrTypeCode) {
         this.rrrTypeCode = rrrTypeCode;
     }
-    
-    public String getRrrReference() {
-        return rrrReference;
+
+    public String getEstateName() {
+        return estateName;
     }
-    
-    public void setRrrReference(String rrrReference) {
-        this.rrrReference = rrrReference;
+
+    public void setEstateName(String estateName) {
+        this.estateName = estateName;
     }
 }
