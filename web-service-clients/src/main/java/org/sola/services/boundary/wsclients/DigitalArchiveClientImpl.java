@@ -175,7 +175,7 @@ public class DigitalArchiveClientImpl extends AbstractWSClientImpl implements Di
         try {
             beforeWebMethod(methodName, fileName);
             result = getPort().getFileThumbnail(fileName);
-            fileName = getFS().download("thumb" + File.separator + result.getName(),
+            fileName = getFS().download("thumb" + FileUtility.alternatePathSeparator + result.getName(),
                     result.getModificationDate().toGregorianCalendar().getTime().getTime()
                     + "_" + result.getName());
             // Use the modification date in the file name in case the file is updated. 
