@@ -178,7 +178,7 @@ public interface SearchClient extends AbstractWSClient {
      * @throws WebServiceClientException
      */
     PropertyVerifierTO verifyApplicationProperty(String applicationNumber, String firstPart, String lastPart, String leaseNumber,
-            String subleaseNumber)
+            String subleaseNumber, String propertyType)
             throws WebServiceClientException;
 
     /**
