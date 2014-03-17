@@ -1,6 +1,6 @@
 /**
  * ******************************************************************************************
- * Copyright (C) 2013 - Food and Agriculture Organization of the United Nations (FAO).
+ * Copyright (C) 2014 - Food and Agriculture Organization of the United Nations (FAO).
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -47,7 +47,7 @@ public class BaUnitSearchResultTO extends AbstractTO {
     private String baUnitTypeCode;
     private String rrrTypeCode;
     private String estateName;
-    private String rrrReference;
+    private String rrrRef;
 
     public BaUnitSearchResultTO() {
         super();
@@ -172,12 +172,12 @@ public class BaUnitSearchResultTO extends AbstractTO {
     public void setEstateName(String estateName) {
         this.estateName = estateName;
     }
-    
-    public String getRrrReference() {
-        return rrrReference;
+
+    public String getRrrRef() {
+        return rrrRef;
     }
 
-    public void setRrrReference(String rrrReference) {
-        this.rrrReference = rrrReference;
+    public void setRrrRef(String rrrRef) {
+        this.rrrRef = rrrRef;
     }
 }

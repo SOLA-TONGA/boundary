@@ -1,6 +1,6 @@
 /**
  * ******************************************************************************************
- * Copyright (C) 2013 - Food and Agriculture Organization of the United Nations (FAO).
+ * Copyright (C) 2014 - Food and Agriculture Organization of the United Nations (FAO).
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -104,12 +104,12 @@ public class MockSearchPort implements Search {
      */
     @Override
     public PropertyVerifierTO verifyApplicationProperty(String applicationNumber, String firstPart,
-            String lastPart, String leaseNumber, String subleaseNumber) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+            String lastPart, String leaseNumber, String subleaseNumber, String propertyType) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         PropertyVerifierTO defaultResponse = new PropertyVerifierTO();
         try {
             return getManager().getResponse(SearchClient.VERIFY_APPLICATION_PROPERTY,
                     PropertyVerifierTO.class, defaultResponse, applicationNumber, firstPart, lastPart, 
-                    leaseNumber, subleaseNumber);
+                    leaseNumber, subleaseNumber, propertyType);
         } catch (Exception ex) {
             processExceptionAccess(ex);
             return null;

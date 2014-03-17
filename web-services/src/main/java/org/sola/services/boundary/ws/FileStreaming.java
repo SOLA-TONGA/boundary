@@ -1,6 +1,6 @@
 /**
  * ******************************************************************************************
- * Copyright (C) 2013 - Food and Agriculture Organization of the United Nations (FAO).
+ * Copyright (C) 2014 - Food and Agriculture Organization of the United Nations (FAO).
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -28,6 +28,7 @@
 package org.sola.services.boundary.ws;
 
 import com.sun.xml.ws.developer.StreamingAttachment;
+import java.io.File;
 import javax.activation.DataHandler;
 import javax.annotation.Resource;
 import javax.jws.WebMethod;
@@ -45,14 +46,17 @@ import org.sola.services.common.webservices.AbstractWebService;
 /**
  * Web Service Boundary class to expose methods for file streaming.
  *
- * <p>The Metro library contains a bug (see http://java.net/jira/browse/WSIT-1081) that prevents
- * file streaming over metro secured connections. Metro also consumes significant amounts of memory
- * when trying to encrypt large attachments. To avoid these bugs, this service is used unsecured and
- * does not retrieve from or update the SOLA database. Instead this service can be used to transfer
- * large files between the file systems of the client and application server. Other secured services
- * such as the Digital Archive Service, must retrieve or post files to the local file system for the
- * file streaming service.</p> <p>The service streams files directly to and from disk and has
- * minimal impact on the overall memory consumption of the application</p>
+ * <p>The Metro library contains a bug (see
+ * http://java.net/jira/browse/WSIT-1081) that prevents file streaming over
+ * metro secured connections. Metro also consumes significant amounts of memory
+ * when trying to encrypt large attachments. To avoid these bugs, this service
+ * is used unsecured and does not retrieve from or update the SOLA database.
+ * Instead this service can be used to transfer large files between the file
+ * systems of the client and application server. Other secured services such as
+ * the Digital Archive Service, must retrieve or post files to the local file
+ * system for the file streaming service.</p> <p>The service streams files
+ * directly to and from disk and has minimal impact on the overall memory
+ * consumption of the application</p>
  */
 @MTOM
 @StreamingAttachment(parseEagerly = true, memoryThreshold = 4000000L)
@@ -73,11 +77,12 @@ public class FileStreaming extends AbstractWebService {
     }
 
     /**
-     * Streams a file up to the SOLA Application Server and stores it on the file system in the
-     * documents cache.
+     * Streams a file up to the SOLA Application Server and stores it on the
+     * file system in the documents cache.
      *
      * @param fileContent - The content of the file being streamed up.
-     * @return The name of the file in the documents cache the file content is saved in.
+     * @return The name of the file in the documents cache the file content is
+     * saved in.
      * @throws SOLAFault
      * @throws UnhandledFault
      */
@@ -90,7 +95,6 @@ public class FileStreaming extends AbstractWebService {
         final DataHandler fileContentTmp = fileContent;
 
         runUnsecured(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = FileUtility.saveFileFromStream(fileContentTmp, null);
@@ -101,12 +105,13 @@ public class FileStreaming extends AbstractWebService {
     }
 
     /**
-     * Streams a file down from the SOLA Application Server to the client. The file must be on the
-     * SOLA Application Server file system.
+     * Streams a file down from the SOLA Application Server to the client. The
+     * file must be on the SOLA Application Server file system.
      *
-     * @param pathFileName The path and file name of the file to retrieve from the SOLA Application
-     * Server. If the file is in the documents cache, only the file name is required. If the file is
-     * elsewhere, the full file path name is required.
+     * @param pathFileName The path and file name of the file to retrieve from
+     * the SOLA Application Server. If the file is in the documents cache, only
+     * the file name is required. If the file is elsewhere, the full file path
+     * name is required.
      * @throws SOLAFault
      * @throws UnhandledFault
      */
@@ -117,10 +122,14 @@ public class FileStreaming extends AbstractWebService {
             throws SOLAFault, UnhandledFault {
 
         final Object[] result = {null};
+        // Ticket #14 - As the client can be installed on a different OS to the 
+        // server, avoid using system dependent path separators by using
+        // !! in the pathFileName instead. The services can then replace this value
+        // with the correct separator value.
+        pathFileName = pathFileName.replace(FileUtility.alternatePathSeparator, File.separator);
         final String tmpPathFileName = pathFileName;
 
         runUnsecured(wsContext, new Runnable() {
-
             @Override
             public void run() {
                 result[0] = FileUtility.getFileAsStream(tmpPathFileName);

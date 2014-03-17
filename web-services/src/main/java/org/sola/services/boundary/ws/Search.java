@@ -1,6 +1,6 @@
 /**
  * ******************************************************************************************
- * Copyright (C) 2013 - Food and Agriculture Organization of the United Nations (FAO).
+ * Copyright (C) 2014 - Food and Agriculture Organization of the United Nations (FAO).
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -86,7 +86,8 @@ public class Search extends AbstractWebService {
             @WebParam(name = "firstPart") final String firstPart,
             @WebParam(name = "lastPart") final String lastPart,
             @WebParam(name = "leaseNumber") final String leaseNumber,
-            @WebParam(name = "subleaseNumber") final String subleaseNumber) throws SOLAFault, UnhandledFault,
+            @WebParam(name = "subleaseNumber") final String subleaseNumber,
+            @WebParam(name = "propertyType") final String propertyType) throws SOLAFault, UnhandledFault,
             SOLAAccessFault {
 
         final Object[] result = {null};
@@ -96,7 +97,7 @@ public class Search extends AbstractWebService {
             public void run() {
                 PropertyVerifier propertyVerifier =
                         searchEJB.getPropertyVerifier(applicationNumber, firstPart, lastPart,
-                        leaseNumber, subleaseNumber);
+                        leaseNumber, subleaseNumber, propertyType);
                 result[0] = GenericTranslator.toTO(
                         propertyVerifier, PropertyVerifierTO.class);
             }

@@ -1,6 +1,6 @@
 /**
  * ******************************************************************************************
- * Copyright (C) 2013 - Food and Agriculture Organization of the United Nations (FAO).
+ * Copyright (C) 2014 - Food and Agriculture Organization of the United Nations (FAO).
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -54,7 +54,6 @@ public class ApplicationPropertyTO extends AbstractIdTO {
     // SOLA Tonga extensions
     private String leaseNumber;
     private BigDecimal leaseTerm;
-    private BigDecimal leaseArea;
     private BigDecimal amount;
     private Date registrationDate;
     private String lessorName;
@@ -63,11 +62,12 @@ public class ApplicationPropertyTO extends AbstractIdTO {
     private String description;
     private String townId;
     private String lesseeName;
-    private boolean leaseLinked;
     private String leaseBaUnitId;
     private String subleaseNumber;
-    private boolean subleaseLinked;
     private String subleaseBaUnitId;
+    private String sublesseeName;
+    private String registeredName;
+    private String typeCode;
 
     public ApplicationPropertyTO() {
         super();
@@ -161,14 +161,6 @@ public class ApplicationPropertyTO extends AbstractIdTO {
         this.leaseTerm = leaseTerm;
     }
 
-    public BigDecimal getLeaseArea() {
-        return leaseArea;
-    }
-
-    public void setLeaseArea(BigDecimal leaseArea) {
-        this.leaseArea = leaseArea;
-    }
-
     public BigDecimal getAmount() {
         return amount;
     }
@@ -241,14 +233,6 @@ public class ApplicationPropertyTO extends AbstractIdTO {
         this.lesseeName = lesseeName;
     }
 
-    public boolean isLeaseLinked() {
-        return leaseLinked;
-    }
-
-    public void setLeaseLinked(boolean leaseLinked) {
-        this.leaseLinked = leaseLinked;
-    }
-
     public String getLeaseBaUnitId() {
         return leaseBaUnitId;
     }
@@ -265,19 +249,35 @@ public class ApplicationPropertyTO extends AbstractIdTO {
         this.subleaseNumber = subleaseNumber;
     }
 
-    public boolean isSubleaseLinked() {
-        return subleaseLinked;
-    }
-
-    public void setSubleaseLinked(boolean subleaseLinked) {
-        this.subleaseLinked = subleaseLinked;
-    }
-
     public String getSubleaseBaUnitId() {
         return subleaseBaUnitId;
     }
 
     public void setSubleaseBaUnitId(String subleaseBaUnitId) {
         this.subleaseBaUnitId = subleaseBaUnitId;
+    }
+
+    public String getSublesseeName() {
+        return sublesseeName;
+    }
+
+    public void setSublesseeName(String sublesseeName) {
+        this.sublesseeName = sublesseeName;
+    }
+
+    public String getRegisteredName() {
+        return registeredName;
+    }
+
+    public void setRegisteredName(String registeredName) {
+        this.registeredName = registeredName;
+    }
+
+    public String getTypeCode() {
+        return typeCode;
+    }
+
+    public void setTypeCode(String typeCode) {
+        this.typeCode = typeCode;
     }
 }

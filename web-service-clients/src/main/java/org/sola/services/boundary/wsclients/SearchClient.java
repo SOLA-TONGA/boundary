@@ -1,6 +1,6 @@
 /**
  * ******************************************************************************************
- * Copyright (C) 2013 - Food and Agriculture Organization of the United Nations (FAO).
+ * Copyright (C) 2014 - Food and Agriculture Organization of the United Nations (FAO).
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -178,7 +178,7 @@ public interface SearchClient extends AbstractWSClient {
      * @throws WebServiceClientException
      */
     PropertyVerifierTO verifyApplicationProperty(String applicationNumber, String firstPart, String lastPart, String leaseNumber,
-            String subleaseNumber)
+            String subleaseNumber, String propertyType)
             throws WebServiceClientException;
 
     /**
