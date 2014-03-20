@@ -164,7 +164,7 @@ public class BaUnitSearchParamsTO extends AbstractTO {
     public void setIslandId(String islandId) {
         this.islandId = islandId;
     }
-
+    
     public String getEstateName() {
         return estateName;
     }
