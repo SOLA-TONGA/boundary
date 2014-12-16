@@ -421,4 +421,22 @@ public class MockSearchPort implements Search {
         }    
     }
     
+        /**
+     * Response Key = SearchClient.SEARCH_DRAFTING
+     *
+     * @return default = new ArrayList<DraftingSearchResultTO>()
+     */
+    @Override
+    public List<DraftingSearchResultTO> searchDrafting(DraftingSearchParamsTO searchParams)
+            throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<DraftingSearchResultTO> defaultResponse = new ArrayList<DraftingSearchResultTO>();
+        try {
+            return getManager().getResponse(SearchClient.SEARCH_DRAFTING,
+                    List.class, defaultResponse, searchParams);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+    
 }

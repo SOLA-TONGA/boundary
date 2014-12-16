@@ -366,4 +366,19 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
         }
         return result;
     }
+    
+    @Override
+    public List<DraftingSearchResultTO> searchDrafting(DraftingSearchParamsTO searchParams) throws WebServiceClientException {
+        List<DraftingSearchResultTO> result = null;
+        final String methodName = SearchClient.SEARCH_DRAFTING;
+        try {
+            beforeWebMethod(methodName, searchParams);
+            result = getPort().searchDrafting(searchParams);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, searchParams);
+        }
+        return result;
+    }
 }

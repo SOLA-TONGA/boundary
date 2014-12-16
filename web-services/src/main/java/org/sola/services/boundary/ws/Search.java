@@ -608,4 +608,27 @@ public class Search extends AbstractWebService {
 
         return (byte[]) result[0];
     }
+    
+    @WebMethod(operationName = "searchDrafting")
+    public List<DraftingSearchResultTO> searchDrafting(@WebParam(name = "searchParams") DraftingSearchParamsTO searchParams)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] params = {searchParams};
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                DraftingSearchParamsTO searchParams = (DraftingSearchParamsTO) params[0];
+                if (searchParams != null) {
+                    result[0] = GenericTranslator.toTOList(
+                            searchEJB.searchDrafting(GenericTranslator.fromTO(
+                            searchParams, DraftingSearchParams.class, null)),
+                            DraftingSearchResultTO.class);
+                }
+            }
+        });
+
+        return (List<DraftingSearchResultTO>) result[0];
+    }
 }
