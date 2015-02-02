@@ -36,6 +36,7 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.services.boundary.transferobjects.casemanagement.*;
+import org.sola.services.boundary.transferobjects.system.BrTO;
 import org.sola.services.common.br.ValidationResult;
 import org.sola.services.common.faults.OptimisticLockingFault;
 import org.sola.services.common.faults.SOLAFault;
@@ -50,6 +51,7 @@ import org.sola.services.ejb.application.repository.entities.Service;
 import org.sola.services.ejb.party.businesslogic.PartyEJBLocal;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.faults.SOLAAccessFault;
+import org.sola.services.ejb.application.repository.entities.Drafting;
 import org.sola.services.ejb.application.repository.entities.ServiceChecklistItem;
 import org.sola.services.ejb.application.repository.entities.WorkSummary;
 import org.sola.services.ejb.party.repository.entities.Party;
@@ -57,6 +59,7 @@ import org.sola.services.ejb.source.businesslogic.SourceEJBLocal;
 import org.sola.services.ejb.source.repository.entities.PowerOfAttorney;
 import org.sola.services.ejb.source.repository.entities.Source;
 import org.sola.services.ejb.system.businesslogic.SystemEJBLocal;
+import org.sola.services.ejb.system.repository.entities.Br;
 
 /**
  * Web Service Boundary class to expose Case Management functionality available
@@ -1345,6 +1348,45 @@ public class CaseManagement extends AbstractWebService {
         });
 
         return (List<PartySummaryTO>) result[0];
+    }
+    
+    @WebMethod(operationName = "GetDrafting")
+    public DraftingTO GetDrafting(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault,
+            SOLAAccessFault {
+
+        final String idTmp = id;
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(applicationEJB.getDrafting(idTmp),
+                        DraftingTO.class);
+            }
+        });
+
+        return (DraftingTO) result[0];
+    }
+    
+    @WebMethod(operationName = "SaveDrafting")
+    public DraftingTO SaveDrafting(@WebParam(name = "drafting") DraftingTO drafting)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+        final Object[] params = {drafting};
+        final Object[] result = {null};
+
+        runUpdateValidation(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                DraftingTO draftingTO = (DraftingTO) params[0];
+                Drafting drafting = applicationEJB.getDrafting(draftingTO.getId());
+                result[0] = GenericTranslator.toTO(
+                        applicationEJB.saveDrafting(GenericTranslator.fromTO(draftingTO, Drafting.class, drafting)),
+                        DraftingTO.class);
+            }
+        });
+
+        return (DraftingTO) result[0];
     }
 
 }

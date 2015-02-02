@@ -743,4 +743,34 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
         }
         return result;
     }
+    
+    @Override
+    public DraftingTO getDrafting(String id) throws WebServiceClientException {
+        DraftingTO result = null;
+        final String methodName = CaseManagementClient.GET_DRAFTING;
+        try {
+            beforeWebMethod(methodName, id);
+            result = getPort().getDrafting(id);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, id);
+        }
+        return result;
+    }
+    
+    @Override
+    public DraftingTO saveDrafting(DraftingTO draftingTO) {
+        DraftingTO result = null;
+        final String methodName = CaseManagementClient.SAVE_DRAFTING;
+        try {
+            beforeWebMethod(methodName, draftingTO);
+            result = getPort().saveDrafting(draftingTO);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, draftingTO);
+        }
+        return result;
+    }
 }

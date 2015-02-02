@@ -886,4 +886,28 @@ public class MockCaseManagementPort implements CaseManagement {
             return null;
         }
     }
+    
+    @Override
+    public DraftingTO getDrafting(String id) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        DraftingTO defaultResponse = new DraftingTO();
+        try {
+            return getManager().getResponse(CaseManagementClient.GET_DRAFTING,
+                    DraftingTO.class, defaultResponse, id);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+        
+    @Override
+    public DraftingTO saveDrafting(DraftingTO drafting) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        DraftingTO defaultResponse = new DraftingTO();
+        try {
+            return getManager().getResponse(CaseManagementClient.SAVE_DRAFTING,
+                    DraftingTO.class, defaultResponse, drafting);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
 }

@@ -236,7 +236,14 @@ public interface CaseManagementClient extends AbstractWSClient {
      * CaseManagement.getWorkSummary - Identifier for the getWorkSummary method
      */
     public static final String GET_WORK_SUMMARY = SERVICE_NAME + "getWorkSummary";
-
+    /**
+     * CaseManagement.getDrafting - Identifier for the getDrafting method
+     */
+    public static final String GET_DRAFTING = SERVICE_NAME + "getDrafting";
+    /**
+     * CaseManagement.saveDrafting - Identifier for the saveDrafting method
+     */
+    public static final String SAVE_DRAFTING = SERVICE_NAME + "saveDrafting";
     /**
      * Calculates the lodgement fees as well as the expected completions dates
      * for each service as well as the application.
@@ -768,4 +775,9 @@ public interface CaseManagementClient extends AbstractWSClient {
     List<WorkSummaryTO> getWorkSummary(LodgementViewParamsTO paramsTO) throws WebServiceClientException;
     
     List<PartySummaryTO> getNobles() throws WebServiceClientException;
+    
+    DraftingTO getDrafting(String id) throws WebServiceClientException;
+    
+    DraftingTO saveDrafting(DraftingTO drafting) throws WebServiceClientException;
+        
 }
