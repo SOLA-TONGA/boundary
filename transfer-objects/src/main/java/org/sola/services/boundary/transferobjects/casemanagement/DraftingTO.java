@@ -13,8 +13,6 @@ import org.sola.services.common.contracts.AbstractIdTO;
  */
 public class DraftingTO extends AbstractIdTO{
 
-    private String id;
-    private String serviceId;
     private String itemNumber; 
     private Date receiveDate;
     private String firstName;
@@ -91,18 +89,6 @@ public class DraftingTO extends AbstractIdTO{
 
     public void setReferInfo(String referInfo) {
         this.referInfo = referInfo;
-    }
-    
-    public String getId() {
-        return id;
-    }
-
-    public String getServiceId() {
-        return serviceId;
-    }
-
-    public void setServiceId(String serviceId) {
-        this.serviceId = serviceId;
     }
 
     public String getNatureOfSurvey() {

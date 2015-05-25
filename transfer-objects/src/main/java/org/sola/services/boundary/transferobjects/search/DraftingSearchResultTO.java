@@ -36,7 +36,7 @@ import org.sola.services.common.contracts.AbstractTO;
  */
 public class DraftingSearchResultTO extends AbstractTO{
     private String itemNumber;
-    private Date dateReceived; 
+    private Date receiveDate; 
     private String firstName;
     private String lastName;
     private String natureOfSurvey;
@@ -65,12 +65,12 @@ public class DraftingSearchResultTO extends AbstractTO{
         this.itemNumber = itemNumber;
     }
 
-    public Date getDateReceived() {
-        return dateReceived;
+    public Date getReceiveDate() {
+        return receiveDate;
     }
 
-    public void setDateReceived(Date dateReceived) {
-        this.dateReceived = dateReceived;
+    public void setReceiveDate(Date receiveDate) {
+        this.receiveDate = receiveDate;
     }
 
     public String getFirstName() {
