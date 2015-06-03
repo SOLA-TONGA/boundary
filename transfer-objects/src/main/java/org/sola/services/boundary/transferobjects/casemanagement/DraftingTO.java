@@ -20,7 +20,7 @@ public class DraftingTO extends AbstractIdTO{
     private String natureOfSurvey;
     private String location;
     private String sentTo;
-    private Date sendDate;
+    private Date sentDate;
     private Date returnDate;
     private String traceBy;
     private Date traceDate;
@@ -29,7 +29,7 @@ public class DraftingTO extends AbstractIdTO{
     private String drawDeed;
     private String deedNumber;
     private String planNumber;
-    private String referInfo;
+    private String reference;
     
     public DraftingTO(){
         super();
@@ -83,12 +83,12 @@ public class DraftingTO extends AbstractIdTO{
         this.planNumber = planNumber;
     }
 
-    public String getReferInfo() {
-        return referInfo;
+    public String getReference() {
+        return reference;
     }
 
-    public void setReferInfo(String referInfo) {
-        this.referInfo = referInfo;
+    public void setReference(String reference) {
+        this.reference = reference;
     }
 
     public String getNatureOfSurvey() {
@@ -107,12 +107,12 @@ public class DraftingTO extends AbstractIdTO{
         this.sentTo = sentTo;
     }
 
-    public Date getSendDate() {
-        return sendDate;
+    public Date getSentDate() {
+        return sentDate;
     }
 
-    public void setSendDate(Date sendDate) {
-        this.sendDate = sendDate;
+    public void setSentDate(Date sentDate) {
+        this.sentDate = sentDate;
     }
 
     public Date getReturnDate() {

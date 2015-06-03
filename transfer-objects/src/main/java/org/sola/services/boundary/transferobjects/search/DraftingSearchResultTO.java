@@ -35,6 +35,8 @@ import org.sola.services.common.contracts.AbstractTO;
  * @author Admin
  */
 public class DraftingSearchResultTO extends AbstractTO{
+    
+    private String id; 
     private String itemNumber;
     private Date receiveDate; 
     private String firstName;
@@ -55,6 +57,14 @@ public class DraftingSearchResultTO extends AbstractTO{
 
     public DraftingSearchResultTO(){
         super();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
     
     public String getItemNumber() {
