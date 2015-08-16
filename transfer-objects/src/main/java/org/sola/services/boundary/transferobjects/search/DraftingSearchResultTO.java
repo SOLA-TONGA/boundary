@@ -53,7 +53,7 @@ public class DraftingSearchResultTO extends AbstractTO{
     private String plottingBy;
     private Date plottingDate;
     private String planNumber;
-    private String reference;
+    private String referInfo;
 
     public DraftingSearchResultTO(){
         super();
@@ -195,12 +195,12 @@ public class DraftingSearchResultTO extends AbstractTO{
         this.planNumber = planNumber;
     }
 
-    public String getReference() {
-        return reference;
+    public String getReferInfo() {
+        return referInfo;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setReferInfo(String referInfo) {
+        this.referInfo = referInfo;
     }
     
 }
