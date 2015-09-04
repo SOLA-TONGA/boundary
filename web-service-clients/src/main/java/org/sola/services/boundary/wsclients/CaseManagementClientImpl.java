@@ -30,6 +30,7 @@ package org.sola.services.boundary.wsclients;
 import java.util.List;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
+import org.sola.services.boundary.transferobjects.casemanagement.MinisterInwardTO;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.casemanagement.CaseManagement;
 import org.sola.webservices.casemanagement.CasemanagementService;
@@ -770,6 +771,36 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
             processException(methodName, e);
         } finally {
             afterWebMethod(methodName, result, draftingTO);
+        }
+        return result;
+    }
+    
+    @Override
+    public MinisterInwardTO getMinisterInward(String id) throws WebServiceClientException {
+        MinisterInwardTO result = null;
+        final String methodName = CaseManagementClient.GET_MINISTER_INWARD;
+        try {
+            beforeWebMethod(methodName, id);
+            result = getPort().getMinisterInward(id);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, id);
+        }
+        return result;
+    }
+    
+    @Override
+    public MinisterInwardTO saveMinisterInward(MinisterInwardTO ministerInwardTO) {
+        MinisterInwardTO result = null;
+        final String methodName = CaseManagementClient.SAVE_MINISTER_INWARD;
+        try {
+            beforeWebMethod(methodName, ministerInwardTO);
+            result = getPort().saveMinisterInward(ministerInwardTO);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, ministerInwardTO);
         }
         return result;
     }

@@ -29,6 +29,8 @@ package org.sola.services.boundary.wsclients;
 
 import java.util.List;
 import javax.xml.namespace.QName;
+import org.sola.services.boundary.transferobjects.search.MinisterInwardSearchParamsTO;
+import org.sola.services.boundary.transferobjects.search.MinisterInwardSearchResultTO;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.search.*;
 import org.sola.webservices.transferobjects.search.*;
@@ -374,6 +376,21 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
         try {
             beforeWebMethod(methodName, searchParams);
             result = getPort().searchDrafting(searchParams);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, searchParams);
+        }
+        return result;
+    }
+    
+    @Override
+    public List<MinisterInwardSearchResultTO> searchMinisterInward(MinisterInwardSearchParamsTO searchParams) throws WebServiceClientException {
+        List<MinisterInwardSearchResultTO> result = null;
+        final String methodName = SearchClient.SEARCH_MINISTER_INWARD;
+        try {
+            beforeWebMethod(methodName, searchParams);
+            result = getPort().searchMinisterInward(searchParams);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {

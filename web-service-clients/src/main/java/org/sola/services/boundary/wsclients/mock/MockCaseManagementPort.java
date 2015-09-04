@@ -910,4 +910,28 @@ public class MockCaseManagementPort implements CaseManagement {
             return null;
         }
     }
+    
+    @Override
+    public MinisterInwardTO getMinisterInward(String id) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        MinisterInwardTO defaultResponse = new MinisterInwardTO();
+        try {
+            return getManager().getResponse(CaseManagementClient.GET_MINISTER_INWARD,
+                    MinisterInwardTO.class, defaultResponse, id);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+        
+    @Override
+    public MinisterInwardTO saveMinisterInward(MinisterInwardTO ministerInward) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        MinisterInwardTO defaultResponse = new MinisterInwardTO();
+        try {
+            return getManager().getResponse(CaseManagementClient.SAVE_MINISTER_INWARD,
+                    MinisterInwardTO.class, defaultResponse, ministerInward);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
 }

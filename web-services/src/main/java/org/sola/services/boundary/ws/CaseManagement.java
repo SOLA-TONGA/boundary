@@ -36,7 +36,6 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.WebServiceContext;
 import org.sola.services.boundary.transferobjects.casemanagement.*;
-import org.sola.services.boundary.transferobjects.system.BrTO;
 import org.sola.services.common.br.ValidationResult;
 import org.sola.services.common.faults.OptimisticLockingFault;
 import org.sola.services.common.faults.SOLAFault;
@@ -52,6 +51,7 @@ import org.sola.services.ejb.party.businesslogic.PartyEJBLocal;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.faults.SOLAAccessFault;
 import org.sola.services.ejb.application.repository.entities.Drafting;
+import org.sola.services.ejb.application.repository.entities.MinisterInward;
 import org.sola.services.ejb.application.repository.entities.ServiceChecklistItem;
 import org.sola.services.ejb.application.repository.entities.WorkSummary;
 import org.sola.services.ejb.party.repository.entities.Party;
@@ -59,7 +59,6 @@ import org.sola.services.ejb.source.businesslogic.SourceEJBLocal;
 import org.sola.services.ejb.source.repository.entities.PowerOfAttorney;
 import org.sola.services.ejb.source.repository.entities.Source;
 import org.sola.services.ejb.system.businesslogic.SystemEJBLocal;
-import org.sola.services.ejb.system.repository.entities.Br;
 
 /**
  * Web Service Boundary class to expose Case Management functionality available
@@ -1389,4 +1388,42 @@ public class CaseManagement extends AbstractWebService {
         return (DraftingTO) result[0];
     }
 
+    @WebMethod(operationName = "GetMinisterInward")
+    public MinisterInwardTO GetMinisterInward(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault,
+            SOLAAccessFault {
+
+        final String idTmp = id;
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(applicationEJB.getMinisterInward(idTmp),
+                        DraftingTO.class);
+            }
+        });
+
+        return (MinisterInwardTO) result[0];
+    }
+    
+    @WebMethod(operationName = "SaveMinisterInward")
+    public MinisterInwardTO SaveMinisterInward(@WebParam(name = "ministerInward") MinisterInwardTO drafting)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+        final Object[] params = {drafting};
+        final Object[] result = {null};
+
+        runUpdateValidation(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                MinisterInwardTO ministerInwardTO = (MinisterInwardTO) params[0];
+                MinisterInward ministerInward = applicationEJB.getMinisterInward(ministerInwardTO.getId());
+                result[0] = GenericTranslator.toTO(
+                        applicationEJB.saveMinisterInward(GenericTranslator.fromTO(ministerInwardTO, MinisterInward.class, ministerInward)),
+                        MinisterInwardTO.class);
+            }
+        });
+
+        return (MinisterInwardTO) result[0];
+    }
 }

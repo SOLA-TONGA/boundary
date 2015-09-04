@@ -29,8 +29,9 @@ package org.sola.services.boundary.wsclients.mock;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.sola.services.boundary.transferobjects.search.MinisterInwardSearchParamsTO;
+import org.sola.services.boundary.transferobjects.search.MinisterInwardSearchResultTO;
 import org.sola.services.boundary.wsclients.SearchClient;
-import org.sola.services.boundary.wsclients.SpatialClient;
 import org.sola.webservices.search.*;
 import org.sola.webservices.search.MapDefinitionTO;
 import org.sola.webservices.transferobjects.search.*;
@@ -432,6 +433,24 @@ public class MockSearchPort implements Search {
         List<DraftingSearchResultTO> defaultResponse = new ArrayList<DraftingSearchResultTO>();
         try {
             return getManager().getResponse(SearchClient.SEARCH_DRAFTING,
+                    List.class, defaultResponse, searchParams);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+    
+     /**
+     * Response Key = SearchClient.SEARCH_MINISTER_INWARD
+     *
+     * @return default = new ArrayList<MinisterInwardSearchResultTO>()
+     */
+    @Override
+    public List<MinisterInwardSearchResultTO> searchMinisterInward(MinisterInwardSearchParamsTO searchParams)
+            throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<MinisterInwardSearchResultTO> defaultResponse = new ArrayList<MinisterInwardSearchResultTO>();
+        try {
+            return getManager().getResponse(SearchClient.SEARCH_MINISTER_INWARD,
                     List.class, defaultResponse, searchParams);
         } catch (Exception ex) {
             processExceptionAccess(ex);
