@@ -793,7 +793,7 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
     @Override
     public MinisterInwardTO saveMinisterInward(MinisterInwardTO ministerInwardTO) {
         MinisterInwardTO result = null;
-        final String methodName = CaseManagementClient.SAVE_MINISTER_INWARD;
+        final String methodName = CaseManagementClient.SAVE_DRAFTING;
         try {
             beforeWebMethod(methodName, ministerInwardTO);
             result = getPort().saveMinisterInward(ministerInwardTO);

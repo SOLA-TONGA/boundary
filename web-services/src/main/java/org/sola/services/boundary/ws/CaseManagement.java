@@ -1399,7 +1399,7 @@ public class CaseManagement extends AbstractWebService {
             @Override
             public void run() {
                 result[0] = GenericTranslator.toTO(applicationEJB.getMinisterInward(idTmp),
-                        DraftingTO.class);
+                        MinisterInwardTO.class);
             }
         });
 
@@ -1407,9 +1407,9 @@ public class CaseManagement extends AbstractWebService {
     }
     
     @WebMethod(operationName = "SaveMinisterInward")
-    public MinisterInwardTO SaveMinisterInward(@WebParam(name = "ministerInward") MinisterInwardTO drafting)
+    public MinisterInwardTO SaveMinisterInward(@WebParam(name = "ministerInward") MinisterInwardTO ministerInward)
             throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
-        final Object[] params = {drafting};
+        final Object[] params = {ministerInward};
         final Object[] result = {null};
 
         runUpdateValidation(wsContext, new Runnable() {

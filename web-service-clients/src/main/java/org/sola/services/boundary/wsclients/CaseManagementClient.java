@@ -792,4 +792,5 @@ public interface CaseManagementClient extends AbstractWSClient {
     MinisterInwardTO getMinisterInward(String id) throws WebServiceClientException;
     
     MinisterInwardTO saveMinisterInward(MinisterInwardTO ministerInward) throws WebServiceClientException;
+    
 }

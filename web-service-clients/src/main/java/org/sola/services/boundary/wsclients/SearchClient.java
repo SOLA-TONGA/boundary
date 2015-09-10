@@ -125,11 +125,10 @@ public interface SearchClient extends AbstractWSClient {
      * Search.searchDrafting - Identifier for the searchDrafting method
      */
     public static final String SEARCH_DRAFTING = SERVICE_NAME + "searchDrafting";
-    /**
-     * Search.searchMinisterInward - Identifier for the searchMinisterInward method
-     */
+    
     public static final String SEARCH_MINISTER_INWARD = SERVICE_NAME + "searchMinisterInward";
-        /**
+
+     /**
      * Search.getExtentOfPublicDisplayMap - Identifier for the
      * getExtentOfPublicDisplayMap method
      */
