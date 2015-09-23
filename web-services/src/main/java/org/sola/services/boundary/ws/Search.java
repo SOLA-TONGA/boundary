@@ -655,4 +655,27 @@ public class Search extends AbstractWebService {
         return (List<MinisterInwardSearchResultTO>) result[0];
     }
     
+    @WebMethod(operationName = "searchMinisterLease")
+    public List<MinisterLeaseSearchResultTO> searchMinisterLease(@WebParam(name = "searchParams") MinisterLeaseSearchParamsTO searchParams)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] params = {searchParams};
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                MinisterLeaseSearchParamsTO searchParams = (MinisterLeaseSearchParamsTO) params[0];
+                if (searchParams != null) {
+                    result[0] = GenericTranslator.toTOList(
+                            searchEJB.searchMinisterLease(GenericTranslator.fromTO(
+                            searchParams, MinisterLeaseSearchParams.class, null)),
+                            MinisterLeaseSearchResultTO.class);
+                }
+            }
+        });
+
+        return (List<MinisterLeaseSearchResultTO>) result[0];
+    }
+    
 }

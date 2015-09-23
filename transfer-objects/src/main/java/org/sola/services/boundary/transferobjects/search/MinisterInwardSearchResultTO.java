@@ -35,6 +35,7 @@ import org.sola.services.common.contracts.AbstractTO;
  * @author Admin
  */
 public class MinisterInwardSearchResultTO extends AbstractTO{
+    private String id;
     private String subject;
     private Date dateIn;
     private String fileNumber;
@@ -50,6 +51,14 @@ public class MinisterInwardSearchResultTO extends AbstractTO{
         super();
     }
 
+    public String getId() {
+        return id;
+    }
+    
+    public void setId(String id) {
+        this.id = id;
+    }
+    
     public String getSubject() {
         return subject;
     }

@@ -31,7 +31,6 @@ import java.util.List;
 import javax.xml.datatype.XMLGregorianCalendar;
 import org.sola.common.RolesConstants;
 import org.sola.common.SOLAAccessException;
-import org.sola.services.boundary.transferobjects.casemanagement.MinisterInwardTO;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.ValidationResult;
 import org.sola.webservices.transferobjects.casemanagement.*;
@@ -253,6 +252,14 @@ public interface CaseManagementClient extends AbstractWSClient {
      * CaseManagement.saveMinisterInward - Identifier for the saveMinisterInward method
      */
     public static final String SAVE_MINISTER_INWARD = SERVICE_NAME + "saveMinisterInward";
+    /**
+     * CaseManagement.getMinisterLease - Identifier for the getMinisterLease method
+     */
+    public static final String GET_MINISTER_LEASE = SERVICE_NAME + "getMinisterLease";
+    /**
+     * CaseManagement.saveMinisterLease - Identifier for the saveMinisterLease method
+     */
+    public static final String SAVE_MINISTER_LEASE = SERVICE_NAME + "saveMinisterLease";
     /**
      * Calculates the lodgement fees as well as the expected completions dates
      * for each service as well as the application.
@@ -790,7 +797,7 @@ public interface CaseManagementClient extends AbstractWSClient {
     DraftingTO saveDrafting(DraftingTO drafting) throws WebServiceClientException;
     
     MinisterInwardTO getMinisterInward(String id) throws WebServiceClientException;
-    
     MinisterInwardTO saveMinisterInward(MinisterInwardTO ministerInward) throws WebServiceClientException;
-    
+    MinisterLeaseTO getMinisterLease(String id) throws WebServiceClientException;
+    MinisterLeaseTO saveMinisterLease(MinisterLeaseTO ministerLease) throws WebServiceClientException;
 }

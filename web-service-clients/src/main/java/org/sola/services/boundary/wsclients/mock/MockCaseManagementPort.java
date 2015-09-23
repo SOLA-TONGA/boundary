@@ -934,4 +934,28 @@ public class MockCaseManagementPort implements CaseManagement {
             return null;
         }
     }
+    
+    @Override
+    public MinisterLeaseTO getMinisterLease(String id) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        MinisterLeaseTO defaultResponse = new MinisterLeaseTO();
+        try {
+            return getManager().getResponse(CaseManagementClient.GET_MINISTER_LEASE,
+                    MinisterLeaseTO.class, defaultResponse, id);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+        
+    @Override
+    public MinisterLeaseTO saveMinisterLease(MinisterLeaseTO ministerLease) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        MinisterLeaseTO defaultResponse = new MinisterLeaseTO();
+        try {
+            return getManager().getResponse(CaseManagementClient.SAVE_MINISTER_LEASE,
+                    MinisterLeaseTO.class, defaultResponse, ministerLease);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
 }

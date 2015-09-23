@@ -29,8 +29,6 @@ package org.sola.services.boundary.wsclients;
 
 import java.util.List;
 import org.sola.common.RolesConstants;
-import org.sola.services.boundary.transferobjects.search.MinisterInwardSearchParamsTO;
-import org.sola.services.boundary.transferobjects.search.MinisterInwardSearchResultTO;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.search.QueryForSelect;
 import org.sola.webservices.search.ResultForSelectionInfo;
@@ -127,6 +125,7 @@ public interface SearchClient extends AbstractWSClient {
     public static final String SEARCH_DRAFTING = SERVICE_NAME + "searchDrafting";
     
     public static final String SEARCH_MINISTER_INWARD = SERVICE_NAME + "searchMinisterInward";
+    public static final String SEARCH_MINISTER_LEASE = SERVICE_NAME + "searchMinisterLease";
 
      /**
      * Search.getExtentOfPublicDisplayMap - Identifier for the
@@ -317,6 +316,8 @@ public interface SearchClient extends AbstractWSClient {
     List<DraftingSearchResultTO> searchDrafting(DraftingSearchParamsTO searchParams) throws WebServiceClientException;
     
     List<MinisterInwardSearchResultTO> searchMinisterInward(MinisterInwardSearchParamsTO searchParams) throws WebServiceClientException;
+    
+    List<MinisterLeaseSearchResultTO> searchMinisterLease(MinisterLeaseSearchParamsTO searchParams) throws WebServiceClientException;
 
     /**
      * It retrieves the extent of the public display map

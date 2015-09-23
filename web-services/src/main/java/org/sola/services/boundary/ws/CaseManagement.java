@@ -52,6 +52,7 @@ import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.faults.SOLAAccessFault;
 import org.sola.services.ejb.application.repository.entities.Drafting;
 import org.sola.services.ejb.application.repository.entities.MinisterInward;
+import org.sola.services.ejb.application.repository.entities.MinisterLease;
 import org.sola.services.ejb.application.repository.entities.ServiceChecklistItem;
 import org.sola.services.ejb.application.repository.entities.WorkSummary;
 import org.sola.services.ejb.party.repository.entities.Party;
@@ -1425,5 +1426,44 @@ public class CaseManagement extends AbstractWebService {
         });
 
         return (MinisterInwardTO) result[0];
+    }
+    
+    @WebMethod(operationName = "GetMinisterLease")
+    public MinisterLeaseTO GetMinisterLease(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault,
+            SOLAAccessFault {
+
+        final String idTmp = id;
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(applicationEJB.getMinisterLease(idTmp),
+                        MinisterLeaseTO.class);
+            }
+        });
+
+        return (MinisterLeaseTO) result[0];
+    }
+    
+    @WebMethod(operationName = "SaveMinisterLease")
+    public MinisterLeaseTO SaveMinisterLease(@WebParam(name = "ministerLease") MinisterLeaseTO ministerLease)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+        final Object[] params = {ministerLease};
+        final Object[] result = {null};
+
+        runUpdateValidation(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                MinisterLeaseTO ministerLeaseTO = (MinisterLeaseTO) params[0];
+                MinisterLease ministerLease = applicationEJB.getMinisterLease(ministerLeaseTO.getId());
+                result[0] = GenericTranslator.toTO(
+                        applicationEJB.saveMinisterLease(GenericTranslator.fromTO(ministerLeaseTO, MinisterLease.class, ministerLease)),
+                        MinisterLeaseTO.class);
+            }
+        });
+
+        return (MinisterLeaseTO) result[0];
     }
 }
