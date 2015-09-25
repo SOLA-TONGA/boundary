@@ -43,7 +43,7 @@
         <dependency>
             <groupId>org.sola.services.boundary</groupId>
             <artifactId>sola-transfer-objects</artifactId>
-            <version>1507a</version>
+            <version>${project.version}</version>
             <type>jar</type>
         </dependency>
     </dependencies>
