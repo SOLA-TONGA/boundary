@@ -833,4 +833,34 @@ public class CaseManagementClientImpl extends AbstractWSClientImpl implements Ca
         }
         return result;
     }
+    
+    @Override
+    public MinisterApplicationTO getMinisterApplication(String id) throws WebServiceClientException {
+        MinisterApplicationTO result = null;
+        final String methodName = CaseManagementClient.GET_MINISTER_APPLICATION;
+        try {
+            beforeWebMethod(methodName, id);
+            result = getPort().getMinisterApplication(id);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, id);
+        }
+        return result;
+    }
+    
+    @Override
+    public MinisterApplicationTO saveMinisterApplication(MinisterApplicationTO ministerApplicationTO) {
+        MinisterApplicationTO result = null;
+        final String methodName = CaseManagementClient.SAVE_MINISTER_APPLICATION;
+        try {
+            beforeWebMethod(methodName, ministerApplicationTO);
+            result = getPort().saveMinisterApplication(ministerApplicationTO);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, ministerApplicationTO);
+        }
+        return result;
+    }
 }

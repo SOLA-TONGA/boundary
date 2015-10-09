@@ -261,6 +261,14 @@ public interface CaseManagementClient extends AbstractWSClient {
      */
     public static final String SAVE_MINISTER_LEASE = SERVICE_NAME + "saveMinisterLease";
     /**
+     * CaseManagement.getMinisterApplication - Identifier for the getMinisterApplication method
+     */
+    public static final String GET_MINISTER_APPLICATION = SERVICE_NAME + "getMinisterApplication";
+    /**
+     * CaseManagement.saveMinisterApplication - Identifier for the saveMinisterApplication method
+     */
+    public static final String SAVE_MINISTER_APPLICATION = SERVICE_NAME + "saveMinisterApplication";
+    /**
      * Calculates the lodgement fees as well as the expected completions dates
      * for each service as well as the application.
      *
@@ -800,4 +808,6 @@ public interface CaseManagementClient extends AbstractWSClient {
     MinisterInwardTO saveMinisterInward(MinisterInwardTO ministerInward) throws WebServiceClientException;
     MinisterLeaseTO getMinisterLease(String id) throws WebServiceClientException;
     MinisterLeaseTO saveMinisterLease(MinisterLeaseTO ministerLease) throws WebServiceClientException;
+    MinisterApplicationTO getMinisterApplication(String id) throws WebServiceClientException;
+    MinisterApplicationTO saveMinisterApplication(MinisterApplicationTO ministerApplication) throws WebServiceClientException;
 }

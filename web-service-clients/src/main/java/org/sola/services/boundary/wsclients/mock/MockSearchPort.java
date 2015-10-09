@@ -474,5 +474,24 @@ public class MockSearchPort implements Search {
             return null;
         }
     }
+    
+    /**
+     * Response Key = SearchClient.SEARCH_MINISTER_APPLICATION
+     *
+     * @return default = new ArrayList<MinisterApplicationSearchResultTO>()
+     */
+    
+    @Override
+    public List<MinisterApplicationSearchResultTO> searchMinisterApplication(MinisterApplicationSearchParamsTO searchParams)
+            throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<MinisterApplicationSearchResultTO> defaultResponse = new ArrayList<MinisterApplicationSearchResultTO>();
+        try {
+            return getManager().getResponse(SearchClient.SEARCH_MINISTER_APPLICATION,
+                    List.class, defaultResponse, searchParams);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
       
 }

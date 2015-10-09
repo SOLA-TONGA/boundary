@@ -126,6 +126,7 @@ public interface SearchClient extends AbstractWSClient {
     
     public static final String SEARCH_MINISTER_INWARD = SERVICE_NAME + "searchMinisterInward";
     public static final String SEARCH_MINISTER_LEASE = SERVICE_NAME + "searchMinisterLease";
+    public static final String SEARCH_MINISTER_APPLICATION = SERVICE_NAME + "searchMinisterApplication";
 
      /**
      * Search.getExtentOfPublicDisplayMap - Identifier for the
@@ -315,10 +316,9 @@ public interface SearchClient extends AbstractWSClient {
     
     List<DraftingSearchResultTO> searchDrafting(DraftingSearchParamsTO searchParams) throws WebServiceClientException;
     
-    List<MinisterInwardSearchResultTO> searchMinisterInward(MinisterInwardSearchParamsTO searchParams) throws WebServiceClientException;
-    
+    List<MinisterInwardSearchResultTO> searchMinisterInward(MinisterInwardSearchParamsTO searchParams) throws WebServiceClientException; 
     List<MinisterLeaseSearchResultTO> searchMinisterLease(MinisterLeaseSearchParamsTO searchParams) throws WebServiceClientException;
-
+    List<MinisterApplicationSearchResultTO> searchMinisterApplication(MinisterApplicationSearchParamsTO searchParams) throws WebServiceClientException;
     /**
      * It retrieves the extent of the public display map
      *

@@ -411,5 +411,20 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
         }
         return result;
     }
+    
+     @Override
+    public List<MinisterApplicationSearchResultTO> searchMinisterApplication(MinisterApplicationSearchParamsTO searchParams) throws WebServiceClientException {
+        List<MinisterApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.SEARCH_MINISTER_APPLICATION;
+        try {
+            beforeWebMethod(methodName, searchParams);
+            result = getPort().searchMinisterApplication(searchParams);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, searchParams);
+        }
+        return result;
+    }
    
 }

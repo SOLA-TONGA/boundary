@@ -51,6 +51,7 @@ import org.sola.services.ejb.party.businesslogic.PartyEJBLocal;
 import org.sola.services.common.ServiceConstants;
 import org.sola.services.common.faults.SOLAAccessFault;
 import org.sola.services.ejb.application.repository.entities.Drafting;
+import org.sola.services.ejb.application.repository.entities.MinisterApplication;
 import org.sola.services.ejb.application.repository.entities.MinisterInward;
 import org.sola.services.ejb.application.repository.entities.MinisterLease;
 import org.sola.services.ejb.application.repository.entities.ServiceChecklistItem;
@@ -1465,5 +1466,44 @@ public class CaseManagement extends AbstractWebService {
         });
 
         return (MinisterLeaseTO) result[0];
+    }
+    
+    @WebMethod(operationName = "GetMinisterApplication")
+    public MinisterApplicationTO GetMinisterApplication(@WebParam(name = "id") String id) throws SOLAFault, UnhandledFault,
+            SOLAAccessFault {
+
+        final String idTmp = id;
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(applicationEJB.getMinisterApplication(idTmp),
+                        MinisterApplicationTO.class);
+            }
+        });
+
+        return (MinisterApplicationTO) result[0];
+    }
+    
+    @WebMethod(operationName = "SaveMinisterApplication")
+    public MinisterApplicationTO SaveMinisterApplication(@WebParam(name = "ministerApplication") MinisterApplicationTO ministerApplication)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, OptimisticLockingFault, SOLAValidationFault {
+        final Object[] params = {ministerApplication};
+        final Object[] result = {null};
+
+        runUpdateValidation(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                MinisterApplicationTO ministerApplicationTO = (MinisterApplicationTO) params[0];
+                MinisterApplication ministerApplication = applicationEJB.getMinisterApplication(ministerApplicationTO.getId());
+                result[0] = GenericTranslator.toTO(
+                        applicationEJB.saveMinisterApplication(GenericTranslator.fromTO(ministerApplicationTO, MinisterApplication.class, ministerApplication)),
+                        MinisterApplicationTO.class);
+            }
+        });
+
+        return (MinisterApplicationTO) result[0];
     }
 }
