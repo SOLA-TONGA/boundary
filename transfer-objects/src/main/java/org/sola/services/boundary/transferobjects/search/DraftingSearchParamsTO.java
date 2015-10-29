@@ -40,7 +40,8 @@ public class DraftingSearchParamsTO extends AbstractTO{
     private String lastName;
     private String location;
     private String planNumber;
-    private Date dateReceived;
+    private Date dateReceivedFrom;
+    private Date dateReceivedTo;
     
     public DraftingSearchParamsTO(){
         super();
@@ -86,12 +87,20 @@ public class DraftingSearchParamsTO extends AbstractTO{
         this.planNumber = planNumber;
     }
 
-    public Date getDateReceived() {
-        return dateReceived;
+    public Date getDateReceivedFrom() {
+        return dateReceivedFrom;
     }
 
-    public void setDateReceived(Date dateReceived) {
-        this.dateReceived = dateReceived;
+    public void setDateReceivedFrom(Date dateReceivedFrom) {
+        this.dateReceivedFrom = dateReceivedFrom;
     }
-    
+
+    public Date getDateReceivedTo() {
+        return dateReceivedTo;
+    }
+
+    public void setDateReceivedTo(Date dateReceivedTo) {
+        this.dateReceivedTo = dateReceivedTo;
+    }
+   
 }
