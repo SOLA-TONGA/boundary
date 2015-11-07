@@ -44,6 +44,7 @@ public class MinisterLeaseSearchResultTO extends AbstractTO{
     private String landType;
     private String totalArea;
     private String leaseArea;
+    private String term;
     private String rent;
     private String surveyFee;
     private String receiptNumber;
@@ -126,6 +127,14 @@ public class MinisterLeaseSearchResultTO extends AbstractTO{
 
     public void setLeaseArea(String leaseArea) {
         this.leaseArea = leaseArea;
+    }
+
+    public String getTerm() {
+        return term;
+    }
+
+    public void setTerm(String term) {
+        this.term = term;
     }
 
     public String getRent() {

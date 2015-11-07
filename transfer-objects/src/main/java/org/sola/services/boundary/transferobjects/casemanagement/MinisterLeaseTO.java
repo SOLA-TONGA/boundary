@@ -44,6 +44,7 @@ public class MinisterLeaseTO extends AbstractIdTO{
     private String landType;
     private String totalArea;
     private String leaseArea;
+    private String term;
     private String rent;
     private String surveyFee;
     private String receiptNumber;
@@ -120,6 +121,14 @@ public class MinisterLeaseTO extends AbstractIdTO{
         this.leaseArea = leaseArea;
     }
 
+    public String getTerm() {
+        return term;
+    }
+
+    public void setTerm(String term) {
+        this.term = term;
+    }
+    
     public String getRent() {
         return rent;
     }
